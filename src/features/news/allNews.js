@@ -27,7 +27,8 @@ export function AllNews() {
 
     return (
         <>
-            <Header />
+            {/* <Header  activeLink="news"/> */}
+            <Header  activeLink="news"/>
 
             {/* card body */}
             <div className="flex mx-10">
