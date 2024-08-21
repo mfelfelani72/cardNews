@@ -1,5 +1,3 @@
-
-
 const path = require("path");
 const webpack = require("webpack");
 const glob = require("glob");
@@ -71,6 +69,9 @@ module.exports = {
     client: {
       logging: "info",
     },
+
+    historyApiFallback: true,//mohammad
+    
     port: process.env.PORT,
     //... other options ...
   },
