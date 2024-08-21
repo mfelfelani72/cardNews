@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route } from "react-router-dom";
 import { Demo } from "../containers/demo/home.demo";
 
+import { AllNews } from "../../features/news/allNews"
 
 const Home = () => {
     return (
@@ -18,7 +19,7 @@ const GuestRoutes = () => {
 
         <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/news" element={<News />}></Route>
+            <Route path="/news" element={<AllNews />}></Route>
         </Routes>
 
     )
