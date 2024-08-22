@@ -10,23 +10,19 @@ export function AllNews() {
     const [news, setNews] = useState(null);
 
     let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
+    
 
 
     const getNews = async () => {
 
-        // console.log(axios.post('/GetPaginatedData'
-        //     , {
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'X-CSRFTOKEN': 'MZbC2erNnHA22p7afLdWYIISBcDyU0vP665s9sASOs7kQd4b4VzIoCwQ2Gxp08lL'
-        //         }
+        // console.log(await axios.post('Provider/g/etProviders/', {
+        //     headers: {
+        //         'Authorization': '92223bf504efcfd0e6e000ba1f4d53f4',
         //     }
-        // ));
-        // setNews(await axios.post('/api/news'));
+        // }));
+
         await axios.post('/api/news').then(function (response) {
             setNews(response.data.data.result);
-
-
         });
     }
 
@@ -44,24 +40,26 @@ export function AllNews() {
     return (
         <>
             {/* <Header  activeLink="news"/> */}
-            <Header activeLink="news" />
-            <div className="flex mx-10">
+            <Header  activeLink="news" />
+            <div className="flex flex-wrap justify-center">
                 {news?.map((row) => (
                     <React.Fragment key="key">
                         {/* card body */}
 
-                        <div className="mx-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div className="mt-10 mx-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <a href={row.link} target="_blank">
-                                <img className="rounded-t-lg" src={row.thImage == " " ? defaultImage : row.thImage } alt="" />
+                                <img className="rounded-t-lg h-[300px] w-[100%]" src={row.thImage == " " ? defaultImage : row.thImage} alt="" />
                             </a>
                             <div className="p-5">
 
                                 <h3 className="font-bold">Autor : {row.author}</h3>
                                 <div className="flex">
                                     <h3 className="mr-1">{row.category}</h3>
-                                    <h6 className="ml-1 mb-4 font-thin"> - {row.provider}</h6>
+                                    <h5 className="ml-1 font-thin"> - {row.provider}</h5>
                                 </div>
-                                
+                                <h6 className="mb-2 font-thin">{
+                                    new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(row.pubDate)}</h6>
+
                                 <a href={row.link} target="_blank">
                                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                         {row.title}
@@ -70,7 +68,8 @@ export function AllNews() {
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                                     {row.articleBody == " " ? "You can click Read more to Read New You can click Read more to Read New You can click Read more to Read New" : row.articleBody.split(/\s+/).slice(0, 20).join(" ") + " ..."}
                                 </p>
-                    
+
+
                                 <a href={row.link} target="_blank" className="mb-0 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Read more
                                     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
