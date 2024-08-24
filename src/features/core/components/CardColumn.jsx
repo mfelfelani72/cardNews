@@ -1,10 +1,12 @@
 import React from "react";
 import Button from "../components/Button.jsx";
+import { dateHelper } from "../../../../utils/helpers/dateHelper.js";
+import { stringHelper } from "../../../../utils/helpers/stringHelper.js";
 
 const CardColumn = (props) => {
 
     let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
-    
+
     return (
         <div className="mt-10 mx-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href={props.row.link} target="_blank">
@@ -17,8 +19,7 @@ const CardColumn = (props) => {
                     <h3 className="mr-1">{props.row.category}</h3>
                     <h5 className="ml-1 font-thin"> - {props.row.provider}</h5>
                 </div>
-                <h6 className="mb-2 font-thin">{
-                    new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(props.row.pubDate)}</h6>
+                <h6 className="mb-2 font-thin">{dateHelper(props.row.pubDate)}</h6>
 
                 <a href={props.row.link} target="_blank">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -26,7 +27,7 @@ const CardColumn = (props) => {
                     </h5>
                 </a>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    {props.row.articleBody == " " ? "You can click Read more to Read New You can click Read more to Read New You can click Read more to Read New" : props.row.articleBody.split(/\s+/).slice(0, 20).join(" ") + " ..."}
+                    {props.row.articleBody == " " ? "You can click Read more to Read New You can click Read more to Read New You can click Read more to Read New" : stringHelper(props.row.articleBody, 20)}
                 </p>
                 <Button
                     href={props.row.link}
