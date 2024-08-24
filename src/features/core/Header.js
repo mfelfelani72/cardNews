@@ -4,7 +4,7 @@ import logo from "../../../assets/images/logo.png"
 
 
 
-export function Header(props) {
+export function Header(...props) {
 
     let link = props.activeLink;
 
