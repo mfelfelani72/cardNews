@@ -26,18 +26,29 @@ export function AllNews() {
         // }
         // ));
 
-        await axios.post('/api/news').then(function (response) {
-            setNews(response.data.data.result);
+        await axios.get('/api/test').then(function (response) {
+            if (response.data.data.result) {
+                console.log("Fetch data done.")
+                setNews(response.data.data.result);
+            }
+            else
+                console.log("Fetch data failed.")
         });
+
+        // await axios.post('/api/news').then(function (response) {
+        //     setNews(response.data.data.result);
+        // });
     }
 
 
     useEffect(() => {
+
         if (!news)
             getNews();
 
-        else
-            console.log(news);
+        setTimeout(() => {
+            getNews();
+        }, 2000);
 
     }, [news]);
 
@@ -49,9 +60,10 @@ export function AllNews() {
 
             <div className="flex flex-wrap justify-center">
                 {news?.map((row) => (
-                    <React.Fragment key="key">
 
-                      <CardColumn row={row} />
+                    <React.Fragment key={row.aimoonhub_id}>
+
+                        <CardColumn row={row} />
 
                     </React.Fragment>
                 ))}
