@@ -1,76 +1,37 @@
 import React, { useEffect, useState } from "react";
-import axios from "../../../utils/services/news/api";
 
-import { Header } from "../core/Header";
-import { Footer } from "../core/Footer";
-import CardColumn from "../core/components/CardColumn.jsx";
-
+import logo from "../../../assets/images/logo.png"
 
 export function AllNews() {
-
-    const [news, setNews] = useState(null);
-
-    const headers = {
-        'Authorization': '92223bf504efcfd0e6e000ba1f4d53f4'
-    }
-    const data = {
-        'symbols': 'all',
-        'startDate': '1717939311',
-        'category': 'cryptocurrencies',
-    }
-
-    const getNews = async () => {
-
-        // console.log(await axios.post('/News/GetNewsbyDateCategory/', {data}, {
-        //     headers: headers
-        // }
-        // ));
-
-        await axios.get('/api/test').then(function (response) {
-            if (response.data.data.result) {
-                console.log("Fetch data done.")
-                setNews(response.data.data.result);
-            }
-            else
-                console.log("Fetch data failed.")
-        });
-
-        // await axios.post('/api/news').then(function (response) {
-        //     setNews(response.data.data.result);
-        // });
-    }
-
-
-    useEffect(() => {
-
-        if (!news)
-            getNews();
-
-        setTimeout(() => {
-            getNews();
-        }, 2000);
-
-    }, [news]);
-
-
     return (
         <>
 
-            <Header activeLink="news" />
+            {/* <Header activeLink="news" /> */}
 
-            <div className="flex flex-wrap justify-center">
-                {news?.map((row) => (
+            {/* <div className="flex w-52 flex-col gap-4">
+                <div className="skeleton h-32 w-full"></div>
+                <div className="skeleton h-4 w-28"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+            </div> */}
 
-                    <React.Fragment key={row.aimoonhub_id}>
+            {/* <Footer /> */}
 
-                        <CardColumn row={row} />
-
-                    </React.Fragment>
-                ))}
+            <div className="bg-white">
+                <div>
+                    <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-[18rem] lg:flex-col">
+                        <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r-[1px] border-gray-200 bg-white px-6 pb-4">
+                            <div className="flex h-20 shrink-0 items-center">
+                                <img alt="Your Company" src={logo} class="h-12 w-auto"></img>
+                                <span className="m-4 mt-6 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AimoonHUB</span>
+                            </div>
+                            <div className="flex"></div>
+                        </div>
+                    </div>
+                    <div className="lg:p-[18rem]"></div>
+                </div>
             </div>
-
-
-            <Footer />
 
         </>
     );
