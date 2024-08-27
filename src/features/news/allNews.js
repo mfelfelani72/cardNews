@@ -20,11 +20,11 @@ export function AllNews() {
 
             <div className="bg-white">
                 <div>
-                    <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-[18rem] lg:flex-col">
+                    <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-[12rem] lg:flex-col">
                         <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r-[1px] border-gray-200 bg-white px-6 pb-4">
                             <div className="flex h-20 shrink-0 items-center">
-                                <img alt="Your Company" src={logo} class="h-12 w-auto"></img>
-                                <span className="m-4 mt-6 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AimoonHUB</span>
+                                <img alt="Your Company" src={logo} class="h-[3.8rem] w-auto mx-auto"></img>
+                                {/* <span className="m-4 mt-6 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AimoonHUB</span> */}
                             </div>
                             <nav className="flex flex-1 flex-col">
                                 <ul role="list" className="flex flex-1 flex-col gap-y-6">
@@ -72,6 +72,26 @@ export function AllNews() {
                                     {/* first */}
                                     <li>
                                         <div class="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
+                                        <ul role="list" className="-mx-2 mt-2 abv">
+                                            <li>
+                                                <a href="#" class="text-gray-700 bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6">
+                                                    <span class="border-gray-200 text-gray-400 bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem]">H</span>
+                                                    <span class="ads">Heroicons</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="text-gray-700 bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6">
+                                                    <span class="border-gray-200 text-gray-400 bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem]">T</span>
+                                                    <span class="ads">Tailwind Labs</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="text-gray-700 bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6">
+                                                    <span class="border-gray-200 text-gray-400 bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem]">W</span>
+                                                    <span class="ads">Workcation</span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     {/* setting */}
                                     <li className="mt-auto">
