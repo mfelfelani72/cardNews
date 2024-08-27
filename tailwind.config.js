@@ -38,7 +38,9 @@ module.exports = {
         green: '#34C759',
         black: '#000000',
         red: '#E02D2D',
-        white: '#fff'
+        white: '#fff',
+        brown: '#e57c43',
+        lightBrown: '#e57c4336',
       },
 
       backgroundImage: {
