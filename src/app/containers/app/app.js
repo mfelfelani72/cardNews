@@ -3,13 +3,14 @@
   Wire up all the app
 
 */
-// import React, { useState, useEffect, lazy } from "react";
+
 import React from "react";
 import { useLocation } from "react-router-dom";
-// import { cn } from "../../../../utils/lib/cn";
+
 import "../../styles/app/app.css";
 
 import GuestRoutes from "../../routes/GuestRoutes";
+import { Sidebar } from "../../../features/core/Sidebar";
 
 const App = () => {
 
@@ -24,7 +25,13 @@ const App = () => {
     if (guestRoutes.includes(pathname)) {
 
         return (
-            <GuestRoutes />
+            <>
+                <Sidebar />
+                <div className="ml-[12rem] p-8">
+                    <GuestRoutes />
+                </div>
+                
+            </>
         );
     }
     // else if (adminRoutes.includes(pathname)) {

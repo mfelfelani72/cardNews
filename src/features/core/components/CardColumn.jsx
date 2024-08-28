@@ -8,7 +8,7 @@ const CardColumn = (props) => {
     let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
 
     return (
-        <div className="mt-10 mx-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="mb-3 mx-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href={props.row.link} target="_blank">
                 <img className="rounded-t-lg h-[300px] w-[100%]" src={props.row.thImage == " " ? defaultImage : props.row.thImage} alt="" />
             </a>
