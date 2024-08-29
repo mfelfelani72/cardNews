@@ -1,37 +1,46 @@
 import React from "react";
+import { dateHelper } from "../../../../utils/helpers/dateHelper.js";
+import { stringHelper } from "../../../../utils/helpers/stringHelper.js";
 
-import logo from "../../../../assets/images/logo-shape.png"
+import logo from "../../../../assets/images/logo-shape.png";
+import avatar from "../../../../assets/images/avatar.png";
 
-const CardRow = () => {
 
+const CardRow = (props) => {
+    let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
     return (
         <>
             <div className="w-full lg:flex mb-4 z-0">
 
-                <div className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden testb relative" title="Woman holding a mug">
-                    <div className="absolute backdrop-blur-sm bg-white/30 right-2 bottom-2 h-8 w-10 rounded-md">
+                <div className="relative lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+                    <img className="h-full" src={props.row.thImage == " " ? defaultImage : props.row.thImage} alt="Woman holding a mug" />
+
+                    <div className="absolute backdrop-blur-sm bg-white/60 right-2 bottom-2 h-8 w-10 rounded-md">
                         <img className="h-6 w-8 m-1" src={logo} />
                     </div>
-
                 </div>
 
 
-                <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+
+
+
+
+                <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal w-full">
                     <div className="mb-8">
-                        <p className="text-sm text-grey-dark flex items-center">
-                            <svg className="text-grey w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-                            </svg>
-                            Members only
+                        <div className="flex">
+                            <h3 className="mr-1">{props.row.category}</h3>
+                            <h5 className="ml-1 font-thin"> - {props.row.provider}</h5>
+                        </div>
+                        <div className="text-black font-bold text-xl mb-2"> {props.row.title}</div>
+                        <p className="text-grey-darker text-base">
+                            {props.row.articleBody == " " ? "You can click Read more to Read New You can click Read more to Read New You can click Read more to Read New" : stringHelper(props.row.articleBody, 20)}
                         </p>
-                        <div className="text-black font-bold text-xl mb-2">Can coffee make you a better developer?</div>
-                        <p className="text-grey-darker text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
                     </div>
                     <div className="flex items-center">
-                        <img className="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink" />
+                        <img className="w-10 h-10 rounded-full mr-4" src={avatar} alt="Avatar of Jonathan Reinink" />
                         <div className="text-sm">
-                            <p className="text-black leading-none">Jonathan Reinink</p>
-                            <p className="text-grey-dark">Aug 18</p>
+                            <p className="text-black leading-none">{props.row.author}</p>
+                            <p className="text-grey-dark">{dateHelper(props.row.pubDate)}</p>
                         </div>
                     </div>
                 </div>

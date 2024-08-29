@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "../../../utils/services/news/api";
 import CardRow from "../core/components/CardRow.jsx";
 
 
@@ -8,10 +9,58 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/controller';
 
+import { dateHelper } from "../../../utils/helpers/dateHelper.js";
+import { stringHelper } from "../../../utils/helpers/stringHelper.js";
+import avatar from "../../../assets/images/avatar.png";
 
 export function AllNews() {
 
-    const images = ['https://images.pexels.com/photos/16770561/pexels-photo-16770561/free-photo-of-scenic-view-of-green-hills-and-mountains.jpeg', 'https://images.pexels.com/photos/20041507/pexels-photo-20041507/free-photo-of-close-up-of-sleeping-cat.jpeg', 'https://images.pexels.com/photos/12187128/pexels-photo-12187128.jpeg', 'https://images.pexels.com/photos/11785594/pexels-photo-11785594.jpeg']
+    const [news, setNews] = useState(null);
+
+    const headers = {
+        'Authorization': '92223bf504efcfd0e6e000ba1f4d53f4'
+    }
+    const data = {
+        'symbols': 'all',
+        'startDate': '1717939311',
+        'category': 'cryptocurrencies',
+    }
+
+    const getNews = async () => {
+
+        // console.log(await axios.post('/News/GetNewsbyDateCategory/', {data}, {
+        //     headers: headers
+        // }
+        // ));
+
+        await axios.get('/test').then(function (response) {
+            if (response.data.data.result) {
+                console.log("Fetch data done.")
+                setNews(response.data.data.result);
+            }
+            else
+                console.log("Fetch data failed.")
+        });
+
+        // await axios.post('/api/news').then(function (response) {
+        //     setNews(response.data.data.result);
+        // });
+    }
+
+
+    useEffect(() => {
+
+        if (!news)
+            getNews();
+
+        setTimeout(() => {
+            getNews();
+        }, 2000);
+
+    }, [news]);
+
+    let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
+
     return (
         <>
 
@@ -36,26 +85,26 @@ export function AllNews() {
 
                 >
 
-                    {images.map((img, index) => (
+                    {news?.map((row, index) => (
                         <SwiperSlide key={index}>
                             <div className="flex flex-row">
                                 <div className="basis-2/4">
                                     <div className="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                                         <div className="mb-8">
-                                            <p className="text-sm text-grey-dark flex items-center">
-                                                <svg className="text-grey w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                    <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-                                                </svg>
-                                                Members only
+                                            <div className="flex">
+                                                <h3 className="mr-1">{row.category}</h3>
+                                                <h5 className="ml-1 font-thin"> - {row.provider}</h5>
+                                            </div>
+                                            <div className="text-black font-bold text-xl mb-2"> {row.title}</div>
+                                            <p className="text-grey-darker text-base">
+                                                {row.articleBody == " " ? "You can click Read more to Read New You can click Read more to Read New You can click Read more to Read New" : stringHelper(row.articleBody, 20)}
                                             </p>
-                                            <div className="text-black font-bold text-xl mb-2">Can coffee make you a better developer?</div>
-                                            <p className="text-grey-darker text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
                                         </div>
                                         <div className="flex items-center">
-                                            <img className="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink" />
+                                            <img className="w-10 h-10 rounded-full mr-4" src={avatar} alt="Avatar of Jonathan Reinink" />
                                             <div className="text-sm">
-                                                <p className="text-black leading-none">Jonathan Reinink</p>
-                                                <p className="text-grey-dark">Aug 18</p>
+                                                <p className="text-black leading-none">{row.author}</p>
+                                                <p className="text-grey-dark">{dateHelper(row.pubDate)}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -63,7 +112,7 @@ export function AllNews() {
                                 <div className="basis-3/5">
                                     <a href='/news#'>
                                         <img
-                                            src={img}
+                                            src={row.thImage == " " ? defaultImage : row.thImage}
                                             alt={`slide-${index + 1}`}
                                             className='w-full h-80 select-none'
                                         />
@@ -76,11 +125,15 @@ export function AllNews() {
 
             <h2 className="font-semibold pb-2">News</h2>
 
-            <CardRow />
-            <CardRow />
-            <CardRow />
-            <CardRow />
-            <CardRow />
+            {news?.map((row) => (
+
+                <React.Fragment key={row.aimoonhub_id}>
+
+                    <CardRow row={row} />
+
+                </React.Fragment>
+            ))}
+
 
 
         </>
