@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-
+import { Autoplay, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/controller';
 
 
 export function Header(...props) {
@@ -50,11 +54,54 @@ export function Header(...props) {
 
                         </div>
                     </div>
-
-
-
-
                 </header >
+                <div className="ml-[12rem] w-full bg-slate-100 z-10">
+                    <div className="flex flex-row">
+                        <div className="bg-brown text-white text-center px-4 rounded-br-2xl font-semibold" >
+                            <span className="p-1">breaking</span>
+                            <span>news</span>
+                        </div>
+                        <Swiper
+                            modules={[Autoplay, A11y]}
+                            speed={9000}
+                            spaceBetween={0} // Adjust the spacing as needed
+                            slidesPerView={1} // Show only one slide by default
+                            autoplay={{
+                                delay: 5000,
+                                disableOnInteraction: false,
+                            }}
+
+                        >
+                            <SwiperSlide key={1}>
+                                <div className="p-1 hover:text-brown">
+                                    <a href="/news##">Can coffee make you a better developer?</a>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide key={1}>
+                                <div className="p-1 hover:text-brown">
+                                    <a href="/news##">Can coffee make you a better developer?</a>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide key={1}>
+                                <div className="p-1 hover:text-brown">
+                                    <a href="/news##">Can coffee make you a better developer?</a>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide key={1}>
+                                <div className="p-1 hover:text-brown">
+                                    <a href="/news##">Can coffee make you a better developer?</a>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide key={1}>
+                                <div className="p-1 hover:text-brown">
+                                    <a href="/news##">Can coffee make you a better developer?</a>
+                                </div>
+                            </SwiperSlide>
+                            
+                        </Swiper>
+
+                    </div>
+                </div >
             </div >
         </>
     );
