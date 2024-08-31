@@ -20,8 +20,8 @@ export function Sidebar() {
     return (
         <div className={cn("fixed inset-y-0 z-50 w-[12rem] flex-col shadow-lg hidden md:flex bg-white", statusSidebar)}>
 
+            {/* menu icon */}
             <div className="flex flex-row-reverse">
-                {/* menu icon */}
                 <div className="hover:cursor-pointer md:hidden text-gray-800 hover:text-brown font-semibold text-2xl m-2
                 border-2 rounded-md border-brown"
                     onClick={() => {
@@ -35,15 +35,10 @@ export function Sidebar() {
 
             <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r-[1px] border-gray-200 px-6 pb-4">
 
-
-
                 <div className="flex flex-col h-20 shrink-0 items-end md:mt-4">
-
-
-
                     <img alt="Your Company" src={logo} className="h-[3.8rem] w-auto mx-auto"></img>
-
                 </div>
+
                 <nav className="flex flex-1 flex-col">
                     <ul role="list" className="flex flex-1 flex-col gap-y-6 my-3 md:my-0">
                         <li className="border-b-2">
@@ -116,6 +111,7 @@ export function Sidebar() {
                     </ul>
 
                 </nav>
+                
             </div>
         </div>
     );

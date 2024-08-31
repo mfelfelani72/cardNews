@@ -10,6 +10,10 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     screens: {
+   
+      'xs': '410px',
+      // => @media (min-width: 475px) { ... }
+
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -24,6 +28,9 @@ module.exports = {
 
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
+
+      '3xl': '1600px',
+      // => @media (min-width: 1600px) { ... }
     },
     pdirection: 'ltr',
 
