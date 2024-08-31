@@ -15,14 +15,14 @@ export function Sidebar() {
     }))
 
     let activeClass = "hover:bg-lightBrown text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6";
-    let nonActiveClass = "hover:bg-lightBrown text-gray-700 hover:text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6";
+    let nonActiveClass = "hover:bg-lightBrown text-gray-700 dark:text-slate-200 hover:text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6";
 
     return (
-        <div className={cn("fixed inset-y-0 z-50 w-[12rem] flex-col shadow-lg hidden md:flex bg-white", statusSidebar)}>
+        <div className={cn("fixed inset-y-0 z-50 w-[12rem] flex-col shadow-lg dark:shadow-slate-500 hidden md:flex bg-white dark:bg-slate-600", statusSidebar)}>
 
             {/* menu icon */}
-            <div className="flex flex-row-reverse">
-                <div className="hover:cursor-pointer md:hidden text-gray-800 hover:text-brown font-semibold text-2xl m-2
+            <div className="flex flex-row-reverse border-r-[1px]">
+                <div className="hover:cursor-pointer md:hidden text-gray-800 dark:text-slate-200 hover:text-brown font-semibold text-2xl m-2
                 border-2 rounded-md border-brown"
                     onClick={() => {
                         statusSidebar === "flex" ? setStatusSidebar("hidden") : setStatusSidebar("flex")
@@ -111,7 +111,7 @@ export function Sidebar() {
                     </ul>
 
                 </nav>
-                
+
             </div>
         </div>
     );

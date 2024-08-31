@@ -26,12 +26,13 @@ export function Header(...props) {
 
     return (
         <>
-            <div className="fixed top-0 left-0 right-0 shadow-md z-10">
+            <div className="fixed top-0 left-0 right-0 shadow-md dark:shadow-slate-500  z-10">
                 <header className="p-3 bg-black w-full border-b-4 border-brown">
                     <div className="flex flex-row">
 
                         {/* menu icon */}
-                        <div className="hover:cursor-pointer md:hidden text-white dark:text-slate-500 hover:text-brown te font-semibold text-2xl mr-3 pt-1"
+                        <div className="hover:cursor-pointer md:hidden text-white hover:text-brown dark:text-slate-500 dark:hover:text-slate-200 te font-semibold text-2xl
+                         mr-3 pt-1"
                             onClick={() => {
                                 statusSidebar === "block" ? setStatusSidebar("hidden") : setStatusSidebar("flex")
 
@@ -41,7 +42,7 @@ export function Header(...props) {
                         </div>
                         {/* menu icon */}
 
-                        <h2 className="basis-1/3 md:ml-[12rem] hidden xs:block text-white dark:text-slate-500 font-semibold text-2xl">AimoonHUB</h2>
+                        <h2 className="basis-1/3 hidden md:ml-[12rem] xs:block text-white dark:text-slate-500 font-semibold text-2xl">AimoonHUB</h2>
 
                         <div className="basis-2/3 flex flex-row-reverse text-sm leading-6 font-semibold text-white">
 
@@ -56,25 +57,24 @@ export function Header(...props) {
 
                             <ul className="flex items-center space-x-8">
                                 <li>
-                                    <a className="dark:text-slate-500 hover:text-sky-500 dark:hover:text-sky-400" href="/docs/installation">
+                                    <a className="hover:text-brown dark:text-slate-500 dark:hover:text-slate-200" href="/login">
                                         Login
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://tailwindui.com/?ref=top" className="dark:text-slate-500 hover:text-sky-500 dark:hover:text-sky-400">
+                                    <a className="hover:text-brown dark:text-slate-500 dark:hover:text-slate-200" href="/register">
                                         Register
                                     </a>
                                 </li>
                             </ul>
                             
-
-
                         </div>
                     </div>
                 </header >
-                <div className="md:mx-[12rem] w-full bg-slate-100 z-10">
+
+                <div className="md:mx-[12rem] w-full bg-slate-100 dark:bg-slate-200 z-10">
                     <div className="flex flex-row">
-                        <div className="bg-brown text-white text-center px-4 rounded-br-2xl font-semibold" >
+                        <div className="hidden sm:block bg-brown text-white text-center px-4 rounded-br-2xl font-semibold" >
                             <span className="p-1">breaking</span>
                             <span>news</span>
                         </div>
@@ -90,31 +90,31 @@ export function Header(...props) {
 
                         >
                             <SwiperSlide key={1}>
-                                <div className="p-1 hover:text-brown">
+                                <div className="p-1 hover:text-brown dark:text-slate-700">
+                                    <a href="/news##">Can coffee make you a better developer? </a>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide key={1}>
+                                <div className="p-1 hover:text-brown dark:text-slate-700">
                                     <a href="/news##">Can coffee make you a better developer?</a>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide key={1}>
-                                <div className="p-1 hover:text-brown">
+                                <div className="p-1 hover:text-brown dark:text-slate-700">
                                     <a href="/news##">Can coffee make you a better developer?</a>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide key={1}>
-                                <div className="p-1 hover:text-brown">
+                                <div className="p-1 hover:text-brown dark:text-slate-700">
                                     <a href="/news##">Can coffee make you a better developer?</a>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide key={1}>
-                                <div className="p-1 hover:text-brown">
+                                <div className="p-1 hover:text-brown dark:text-slate-700">
                                     <a href="/news##">Can coffee make you a better developer?</a>
                                 </div>
                             </SwiperSlide>
-                            <SwiperSlide key={1}>
-                                <div className="p-1 hover:text-brown">
-                                    <a href="/news##">Can coffee make you a better developer?</a>
-                                </div>
-                            </SwiperSlide>
-
+                            
                         </Swiper>
 
                     </div>
