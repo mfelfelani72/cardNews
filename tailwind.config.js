@@ -8,9 +8,10 @@ const {
 
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  darkMode: 'class',
   theme: {
     screens: {
-   
+
       'xs': '410px',
       // => @media (min-width: 475px) { ... }
 
@@ -48,6 +49,7 @@ module.exports = {
         white: '#fff',
         brown: '#e57c43',
         lightBrown: '#e57c4336',
+        dark: '#1d232a',
       },
 
       backgroundImage: {

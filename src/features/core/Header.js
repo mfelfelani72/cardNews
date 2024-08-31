@@ -13,12 +13,6 @@ import useAppStore from "../../../utils/stores/AppStore.js";
 
 export function Header(...props) {
 
-    let link = props.activeLink;
-
-    let activeclassName = "md:text-blue-700 block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white md:dark:text-blue-500";
-
-    let nonActiveclassName = "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent";
-
     const { statusSidebar, setStatusSidebar } = useAppStore((state) => ({
         statusSidebar: state.statusSidebar,
         setStatusSidebar: state.setStatusSidebar,
@@ -31,7 +25,7 @@ export function Header(...props) {
                     <div className="flex flex-row">
 
                         {/* menu icon */}
-                        <div className="hover:cursor-pointer md:hidden text-white hover:text-brown dark:text-slate-500 dark:hover:text-slate-200 te font-semibold text-2xl
+                        <div className="hover:cursor-pointer md:hidden text-white hover:text-brown dark:text-slate-500 dark:hover:text-slate-200 font-semibold text-2xl
                          mr-3 pt-1"
                             onClick={() => {
                                 statusSidebar === "block" ? setStatusSidebar("hidden") : setStatusSidebar("flex")
@@ -46,7 +40,9 @@ export function Header(...props) {
 
                         <div className="basis-2/3 flex flex-row-reverse text-sm leading-6 font-semibold text-white">
 
-                            <div className="flex items-center border-l border-slate-200 ml-6 pl-6">
+                            <div className="flex items-center border-l border-slate-200 ml-6 pl-6 hover:cursor-pointer hover:text-brown dark:hover:text-slate-200" onClick={()=>{
+                                document.documentElement.classList.toggle("dark");
+                            }}>
                                 <span className="hidden dark:block">
                                     <IoSunny />
                                 </span>
@@ -90,30 +86,36 @@ export function Header(...props) {
 
                         >
                             <SwiperSlide key={1}>
-                                <div className="p-1 hover:text-brown dark:text-slate-700">
+                                <div className="p-1 hover:text-brown text-black dark:text-slate-700">
                                     <a href="/news##">Can coffee make you a better developer? </a>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide key={1}>
-                                <div className="p-1 hover:text-brown dark:text-slate-700">
-                                    <a href="/news##">Can coffee make you a better developer?</a>
+                                <div className="p-1 hover:text-brown text-black dark:text-slate-700">
+                                    <a href="/news##">Can coffee make you a better developer? </a>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide key={1}>
-                                <div className="p-1 hover:text-brown dark:text-slate-700">
-                                    <a href="/news##">Can coffee make you a better developer?</a>
+                                <div className="p-1 hover:text-brown text-black dark:text-slate-700">
+                                    <a href="/news##">Can coffee make you a better developer? </a>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide key={1}>
-                                <div className="p-1 hover:text-brown dark:text-slate-700">
-                                    <a href="/news##">Can coffee make you a better developer?</a>
+                                <div className="p-1 hover:text-brown text-black dark:text-slate-700">
+                                    <a href="/news##">Can coffee make you a better developer? </a>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide key={1}>
-                                <div className="p-1 hover:text-brown dark:text-slate-700">
-                                    <a href="/news##">Can coffee make you a better developer?</a>
+                                <div className="p-1 hover:text-brown text-black dark:text-slate-700">
+                                    <a href="/news##">Can coffee make you a better developer? </a>
                                 </div>
                             </SwiperSlide>
+                            <SwiperSlide key={1}>
+                                <div className="p-1 hover:text-brown text-black dark:text-slate-700">
+                                    <a href="/news##">Can coffee make you a better developer? </a>
+                                </div>
+                            </SwiperSlide>
+                          
                             
                         </Swiper>
 
