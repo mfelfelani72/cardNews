@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "../../../utils/services/news/api";
 import CardRow from "../core/components/CardRow.jsx";
 
+import useAppStore from "../../../utils/stores/AppStore.js"
+
 
 import { Autoplay, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -48,23 +50,33 @@ export function AllNews() {
     }
 
 
+    const { setSidebarLink } = useAppStore((state) => ({
+        setSidebarLink: state.setSidebarLink,
+    }))
+
     useEffect(() => {
 
-        if (!news)
+        
+        if (!news){
+            setSidebarLink("news");
             getNews();
+        }
 
         setTimeout(() => {
             getNews();
-        }, 2000);
+        }, 10000);
 
     }, [news]);
 
     let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
 
+    
+
+    
+
     return (
 
         <>
-
             <h2 className="font-semibold pb-2">Latest News</h2>
 
 

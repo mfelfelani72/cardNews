@@ -1,8 +1,17 @@
 import React from "react";
-
-import logo from "../../../assets/images/logo.png"
+import logo from "../../../assets/images/logo.png";
+import useAppStore from "../../../utils/stores/AppStore.js";
 
 export function Sidebar() {
+
+
+    const { sidebarLink } = useAppStore((state) => ({
+        sidebarLink: state.sidebarLink,
+    }))
+
+    let activeClass = "hover:bg-lightBrown text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6";
+    let nonActiveClass = "hover:bg-lightBrown text-gray-700 hover:text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6";
+
     return (
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-[12rem] lg:flex-col">
             <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r-[1px] border-gray-200 bg-white px-6 pb-4">
@@ -15,29 +24,29 @@ export function Sidebar() {
                         <li className="border-b-2">
                             <ul role="list" className="-mx-2 my-2 abv">
                                 <li>
-                                    <a href="#" className="hover:bg-lightBrown text-gray-700 hover:text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6">
+                                    <a href="#" className={sidebarLink == "llmNews" ? activeClass : nonActiveClass}>
                                         <span className="border-brown text-brown bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem]">L</span>
                                         <span className="ads">LLM News</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="hover:bg-lightBrown text-gray-700 hover:text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6">
+                                    <a href="#" className={sidebarLink == "topNews" ? activeClass : nonActiveClass}>
                                         <span className="border-brown text-brown bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem]">T</span>
                                         <span className="ads">Top News</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="hover:bg-lightBrown text-gray-700 hover:text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6">
+                                    <a href="#" className={sidebarLink == "news" ? activeClass : nonActiveClass}>
                                         <span className="border-brown text-brown bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem]">N</span>
                                         <span className="ads">News</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="hover:bg-lightBrown text-gray-700 hover:text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6">
+                                    <a href="#" className={sidebarLink == "coins" ? activeClass : nonActiveClass}>
                                         <span className="border-brown text-brown bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem]">C</span>
                                         <span className="ads">Coins</span>
                                     </a>
-                                    <a href="#" className="hover:bg-lightBrown text-gray-700 hover:text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6">
+                                    <a href="#" className={nonActiveClass}>
                                         <span className="border-brown text-brown bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem]">S</span>
                                         <span className="ads">Search</span>
                                     </a>
