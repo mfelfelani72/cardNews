@@ -62,9 +62,8 @@ export function AllNews() {
     let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
 
     return (
+
         <>
-
-
 
             <h2 className="font-semibold pb-2">Latest News</h2>
 
@@ -133,8 +132,6 @@ export function AllNews() {
 
                 </React.Fragment>
             ))}
-
-
 
         </>
     );
