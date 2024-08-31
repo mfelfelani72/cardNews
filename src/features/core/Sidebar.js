@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../../../assets/images/logo.png";
 import useAppStore from "../../../utils/stores/AppStore.js";
 
-import { IoCloseCircleSharp } from "react-icons/io5";
+import { IoIosClose } from "react-icons/io";
 import { cn } from "../../../utils/lib/cn.js"
 
 export function Sidebar() {
@@ -18,21 +18,28 @@ export function Sidebar() {
     let nonActiveClass = "hover:bg-lightBrown text-gray-700 hover:text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6";
 
     return (
-        <div className={cn("fixed inset-y-0 z-50 w-[12rem] flex-col shadow-lg hidden md:flex", statusSidebar)}>
-            
-            <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r-[1px] border-gray-200 bg-white px-6 pb-4">
-                
+        <div className={cn("fixed inset-y-0 z-50 w-[12rem] flex-col shadow-lg hidden md:flex bg-white", statusSidebar)}>
+
+            <div className="flex flex-row-reverse">
+                {/* menu icon */}
+                <div className="hover:cursor-pointer md:hidden text-gray-800 hover:text-brown font-semibold text-2xl m-2
+                border-2 rounded-md border-brown"
+                    onClick={() => {
+                        statusSidebar === "flex" ? setStatusSidebar("hidden") : setStatusSidebar("flex")
+                    }}
+                >
+                    <IoIosClose />
+                </div>
+            </div>
+            {/* menu icon */}
+
+            <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r-[1px] border-gray-200 px-6 pb-4">
+
+
+
                 <div className="flex flex-col h-20 shrink-0 items-end md:mt-4">
 
-                    {/* menu icon */}
-                    <div className="hover:cursor-pointer md:hidden text-gray-800 hover:text-brown  font-semibold text-2xl pt-1 items-center"
-                        onClick={() => {
-                            statusSidebar === "flex" ? setStatusSidebar("hidden") : setStatusSidebar("flex")
-                        }}
-                    >
-                        <IoCloseCircleSharp />
-                    </div>
-                    {/* menu icon */}
+
 
                     <img alt="Your Company" src={logo} className="h-[3.8rem] w-auto mx-auto"></img>
 
