@@ -27,7 +27,7 @@ const App = () => {
         return (
             <>
                 <Sidebar />
-                <div className="ml-[12rem] mt-16 p-8">
+                <div className="md:ml-[12rem] mt-16 p-8">
                     <GuestRoutes />
                 </div>
                 

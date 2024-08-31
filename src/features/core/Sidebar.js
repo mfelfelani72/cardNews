@@ -1,28 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../../assets/images/logo.png";
 import useAppStore from "../../../utils/stores/AppStore.js";
+
+import { IoCloseCircleSharp } from "react-icons/io5";
+import { cn } from "../../../utils/lib/cn.js"
 
 export function Sidebar() {
 
 
-    const { sidebarLink } = useAppStore((state) => ({
+    const { sidebarLink, statusSidebar, setStatusSidebar } = useAppStore((state) => ({
         sidebarLink: state.sidebarLink,
+        statusSidebar: state.statusSidebar,
+        setStatusSidebar: state.setStatusSidebar,
     }))
 
     let activeClass = "hover:bg-lightBrown text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6";
     let nonActiveClass = "hover:bg-lightBrown text-gray-700 hover:text-brown bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6";
 
     return (
-        <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-[12rem] lg:flex-col">
+        <div className={cn("fixed inset-y-0 z-50 w-[12rem] flex-col shadow-lg hidden md:flex", statusSidebar)}>
+            
             <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r-[1px] border-gray-200 bg-white px-6 pb-4">
-                <div className="flex h-20 shrink-0 items-center">
+                
+                <div className="flex flex-col h-20 shrink-0 items-end md:mt-4">
+
+                    {/* menu icon */}
+                    <div className="hover:cursor-pointer md:hidden text-gray-800 hover:text-brown  font-semibold text-2xl pt-1 items-center"
+                        onClick={() => {
+                            statusSidebar === "flex" ? setStatusSidebar("hidden") : setStatusSidebar("flex")
+                        }}
+                    >
+                        <IoCloseCircleSharp />
+                    </div>
+                    {/* menu icon */}
+
                     <img alt="Your Company" src={logo} className="h-[3.8rem] w-auto mx-auto"></img>
 
                 </div>
                 <nav className="flex flex-1 flex-col">
-                    <ul role="list" className="flex flex-1 flex-col gap-y-6">
+                    <ul role="list" className="flex flex-1 flex-col gap-y-6 my-3 md:my-0">
                         <li className="border-b-2">
-                            <ul role="list" className="-mx-2 my-2 abv">
+                            <ul role="list" className="-mx-2 abv">
                                 <li>
                                     <a href="#" className={sidebarLink == "llmNews" ? activeClass : nonActiveClass}>
                                         <span className="border-brown text-brown bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem]">L</span>
@@ -47,7 +65,7 @@ export function Sidebar() {
                                         <span className="ads">Coins</span>
                                     </a>
                                     <a href="#" className={nonActiveClass}>
-                                        <span className="border-brown text-brown bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem]">S</span>
+                                        <span className="border-brown text-brown bql bru flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 bg-white font-medium text-[0.875rem] mb-4">S</span>
                                         <span className="ads">Search</span>
                                     </a>
                                 </li>

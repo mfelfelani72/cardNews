@@ -59,12 +59,6 @@ export function AllNews() {
 
     }, [news]);
 
-    
-
-
-
-
-
     return (
 
         <>

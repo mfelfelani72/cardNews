@@ -5,7 +5,11 @@ const useAppStore = create((set) => ({
     //    sidebar 
 
     sidebarLink: "news",
-    setSidebarLink: (sidebarLink) => set({ sidebarLink: sidebarLink })
+    setSidebarLink: (sidebarLink) => set({ sidebarLink: sidebarLink }),
+
+
+    statusSidebar: "",
+    setStatusSidebar: (statusSidebar) => set({ statusSidebar: statusSidebar }),
 
     //    sidebar 
 

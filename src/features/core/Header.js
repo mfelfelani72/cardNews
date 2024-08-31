@@ -7,6 +7,9 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/controller';
 
+import { IoMenu } from "react-icons/io5";
+import useAppStore from "../../../utils/stores/AppStore.js";
+
 
 export function Header(...props) {
 
@@ -16,15 +19,29 @@ export function Header(...props) {
 
     let nonActiveclassName = "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent";
 
-
+    const { statusSidebar, setStatusSidebar } = useAppStore((state) => ({
+        statusSidebar: state.statusSidebar,
+        setStatusSidebar: state.setStatusSidebar,
+    }))
 
     return (
         <>
-            <div className="fixed top-0 left-0 right-0 z-10">
-                <header className="ml-[12rem] p-3 bg-black w-full border-b-4 border-brown">
+            <div className="fixed top-0 left-0 right-0 shadow-md z-10">
+                <header className="md:ml-[12rem] p-3 bg-black w-full border-b-4 border-brown">
                     <div className="flex flex-row">
-                        <h2 className="basis-1/3 text-white font-semibold text-2xl">AimoonHUB</h2>
 
+                        {/* menu icon */}
+                        <div className="hover:cursor-pointer md:hidden text-white hover:text-brown te font-semibold text-2xl mr-3 pt-1"
+                            onClick={() => {
+                                statusSidebar === "block" ? setStatusSidebar("hidden") : setStatusSidebar("flex")
+
+                            }}
+                        >
+                            <IoMenu />
+                        </div>
+                        {/* menu icon */}
+
+                        <h2 className="basis-1/3 text-white font-semibold text-2xl">AimoonHUB</h2>
 
                         <div className="basis-1/2 flex flex-row-reverse text-sm leading-6 font-semibold text-white">
                             <div className="flex items-center border-l border-slate-200 ml-6 pl-6">
@@ -55,7 +72,7 @@ export function Header(...props) {
                         </div>
                     </div>
                 </header >
-                <div className="ml-[12rem] w-full bg-slate-100 z-10">
+                <div className="md:ml-[12rem] w-full bg-slate-100 z-10">
                     <div className="flex flex-row">
                         <div className="bg-brown text-white text-center px-4 rounded-br-2xl font-semibold" >
                             <span className="p-1">breaking</span>
@@ -97,7 +114,7 @@ export function Header(...props) {
                                     <a href="/news##">Can coffee make you a better developer?</a>
                                 </div>
                             </SwiperSlide>
-                            
+
                         </Swiper>
 
                     </div>
