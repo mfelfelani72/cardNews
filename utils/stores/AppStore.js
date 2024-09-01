@@ -2,6 +2,13 @@ import { create } from "zustand";
 
 const useAppStore = create((set) => ({
 
+    //    Loading
+
+    loading: true,
+    setLoading: (loading) => set({ loading: loading }),
+
+    //    Loading
+
     //    sidebar 
 
     sidebarLink: "news",
