@@ -13,6 +13,13 @@ const useAppStore = create((set) => ({
 
     //    sidebar 
 
+    //    header 
+
+    progressBar: "0",
+    setProgressBar: (progressBar) => set({ progressBar: progressBar }),
+
+    //    header 
+
 }))
 
 export default useAppStore;
