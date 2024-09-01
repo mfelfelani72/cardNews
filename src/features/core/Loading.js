@@ -27,7 +27,7 @@ export default function Loading({ tasks }) {
 
     return (
         <div
-            className={`px-4 py-3 rounded fixed my-12 mx-6 flex flex-col w-1/4`}
+            className={`px-4 py-3 rounded fixed my-12 mx-6 flex flex-col w-[20rem]`}
         >
             <div className="flex items-center">
                 <ProgressBar percentage={(progression / tasks.length) * 100} />

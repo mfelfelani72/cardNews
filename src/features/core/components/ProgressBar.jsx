@@ -13,7 +13,7 @@ export default function ProgressBar({ percentage, startAt = 1 }) {
                         width: `${percentage >= startAt ? percentage : startAt}%`
                     }}
                     className="h-full bg-brown transition-all duration-1000"
-                />
+                ></div>
             </div>
         </div>
     );
