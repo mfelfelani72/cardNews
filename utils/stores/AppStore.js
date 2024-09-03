@@ -4,7 +4,7 @@ const useAppStore = create((set) => ({
 
     //    Loading
 
-    loading: true,
+    loading: false,
     setLoading: (loading) => set({ loading: loading }),
 
     //    Loading
@@ -13,7 +13,6 @@ const useAppStore = create((set) => ({
 
     sidebarLink: "news",
     setSidebarLink: (sidebarLink) => set({ sidebarLink: sidebarLink }),
-
 
     statusSidebar: "",
     setStatusSidebar: (statusSidebar) => set({ statusSidebar: statusSidebar }),

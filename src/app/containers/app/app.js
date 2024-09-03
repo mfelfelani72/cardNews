@@ -32,7 +32,7 @@ const App = () => {
         loading: state.loading,
     }))
 
-    // for calculate scrol page
+    // for calculate scroll page
     const updateScrollCompletion = () => {
         const currentProgress = window.scrollY;
         const scrolHeight = document.body.scrollHeight - window.innerHeight;
@@ -41,7 +41,7 @@ const App = () => {
             setProgressBar(String(Number((currentProgress / scrolHeight).toFixed(2)) * 100) + '%');
         }
     }
-    // for calculate scrol page
+    // for calculate scroll page
 
     // task for loading
     const tasks = [
@@ -66,7 +66,9 @@ const App = () => {
         }
         // initial dark mode
 
+        // call function to calculate scroll
         window.addEventListener('scroll', updateScrollCompletion);
+        // call function to calculate scroll
 
 
     }, []);
@@ -85,7 +87,7 @@ const App = () => {
             <>
                 {loading
                     ?
-                    <div className="h-screen w-screen flex items-center justify-center px-16 bg-white dark:bg-slate-500">
+                    <div className="h-screen w-screen flex items-center justify-center px-16 bg-b-bright dark:bg-d-b-bright">
                         <Loading tasks={tasks} />
                     </div>
                     :
@@ -93,7 +95,7 @@ const App = () => {
                         <Header />
 
                         <Sidebar />
-                        <div className="md:ml-[12rem] mt-20 p-8 bg-white dark:bg-dark">
+                        <div className="md:ml-[12rem] mt-20 p-8 bg-b-bright dark:bg-d-b-dim">
                             <GuestRoutes />
                         </div>
 

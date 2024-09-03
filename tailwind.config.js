@@ -50,9 +50,41 @@ module.exports = {
         black: '#000000',
         red: '#E02D2D',
         white: '#fff',
-        brown: '#e57c43',
-        lightBrown: '#e57c4336',
-        dark: '#1d232a',
+
+        // { dark mode color
+
+        // text
+        'DT-dim': '#334155',
+        'DT-bright': '#e2e8f0',
+        'DT-title': '#64748b',
+
+        // background
+        'DB-dim': '#1d232a',
+        'DB-bright': '#64748b',
+        'DB-v-bright': '#cbd5e1',
+
+        // shadow
+        'DSH-dark': '#64748b',
+
+        'D-color-theme': '#e57c43',
+        'D-color-theme-light': '#e57c4336',
+
+        // dark mode color }
+
+        // { light mode color
+
+        //text
+        'T-dim': '#e57c43',
+        'T-bright': '#475579',
+        'T-title': '#e57c4336',
+
+        // background
+        'B-bright': '#fff',
+
+        'color-theme': '#e57c43',
+        'color-theme-light': '#e57c4336',
+
+        // light mode color }
       },
 
       backgroundImage: {
