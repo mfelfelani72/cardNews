@@ -74,7 +74,7 @@ module.exports = {
         // { light mode color
 
         //text
-        'T-dim': '#e57c43',
+        'T-dim': '#0f172a',
         'T-bright': '#475579',
         'T-title': '#e57c4336',
 

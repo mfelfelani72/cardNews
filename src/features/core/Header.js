@@ -39,7 +39,7 @@ export function Header(...props) {
                         </div>
                         {/* menu icon */}
 
-                        <h2 className="basis-1/3 hidden md:ml-[12rem] xs:block text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme font-semibold text-2xl">AimoonHUB</h2>
+                        <h2 className="basis-1/3 hidden md:ml-[12rem] xs:block text-DT-bright  font-semibold text-2xl">AimoonHUB</h2>
 
                         <div className="basis-2/3 flex flex-row-reverse text-sm leading-6 font-semibold text-DT-bright ">
 

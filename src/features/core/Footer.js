@@ -3,10 +3,10 @@ import React from "react";
 export function Footer() {
 
     return (
-        <footer className="bg-slate-50 dark:bg-slate-800">
+        <footer className="bg-B-bright/30 dark:bg-DB-dim/95">
             <div className="h-16 pt-5 md:ml-[12.5rem]">
-                <p className="text-sm/6 text-slate-600 dark:text-slate-400 text-center">
-                    © 2024 <a href="#" className="text-brown">AimoonHUB</a> Labs Inc. All rights reserved.
+                <p className="text-sm/6 text-T-bright dark:text-DT-bright text-center">
+                    © 2024 <a href="#" className="text-color-theme dark:text-D-color-theme">AimoonHUB</a> Labs Inc. All rights reserved.
                 </p>
             </div>
         </footer>
