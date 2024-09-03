@@ -87,7 +87,7 @@ const App = () => {
             <>
                 {loading
                     ?
-                    <div className="h-screen w-screen flex items-center justify-center px-16 bg-b-bright dark:bg-d-b-bright">
+                    <div className="h-screen w-screen flex items-center justify-center px-16 bg-B-V-bright dark:bg-DB-bright">
                         <Loading tasks={tasks} />
                     </div>
                     :
@@ -95,7 +95,7 @@ const App = () => {
                         <Header />
 
                         <Sidebar />
-                        <div className="md:ml-[12rem] mt-20 p-8 bg-b-bright dark:bg-d-b-dim">
+                        <div className="md:ml-[12rem] mt-20 p-8 bg-B-V-bright dark:bg-DB-dim">
                             <GuestRoutes />
                         </div>
 

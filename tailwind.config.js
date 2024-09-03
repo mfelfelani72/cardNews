@@ -61,7 +61,7 @@ module.exports = {
         // background
         'DB-dim': '#1d232a',
         'DB-bright': '#64748b',
-        'DB-v-bright': '#cbd5e1',
+        'DB-V-bright': '#cbd5e1',
 
         // shadow
         'DSH-dark': '#64748b',
@@ -79,7 +79,9 @@ module.exports = {
         'T-title': '#e57c4336',
 
         // background
-        'B-bright': '#fff',
+        'B-dim': '#1d232a',
+        'B-bright': '#64748b',
+        'B-V-bright': '#fff',
 
         'color-theme': '#e57c43',
         'color-theme-light': '#e57c4336',

@@ -16,7 +16,7 @@ export function Sidebar() {
     let nonActiveClass = "hover:bg-color-theme-light hover:dark:bg-D-color-theme-light text-T-bright dark:text-DT-bright hover:text-color-theme hover:dark:text-D-color-theme  bik blj bqi flex gap-x-3 rounded-md p-2 text-sm  font-semibold leading-6";
 
     return (
-        <div className={cn("fixed inset-y-0 z-50 w-[12rem] flex-col shadow-lg dark:shadow-sh-dark hidden md:flex bg-B-bright dark:bg-DB-bright", statusSidebar)}>
+        <div className={cn("fixed inset-y-0 z-50 w-[12rem] flex-col shadow-lg dark:shadow-sh-dark hidden md:flex bg-B-V-bright dark:bg-DB-bright", statusSidebar)}>
 
             {/* menu icon */}
             <div className="flex flex-row-reverse border-r-[1px]">
@@ -92,7 +92,7 @@ export function Sidebar() {
                             </div>
                             <div className="border-[1px] border-color-theme dark:border-D-color-theme rounded-lg bg-lightBrown w-full h-18 p-1 text-color-theme dark:text-D-color-theme text-xs text-center pt-1">
 
-                                <a href="#" className=" text-color-theme dark:text-D-color-theme hover:text-color-theme dark:text-D-color-theme bqi flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6">
+                                <a href="#" className=" text-color-theme dark:text-D-color-theme hover:text-color-theme hover:dark:text-D-color-theme bqi flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="text-color-theme dark:text-D-color-theme h-6 w-6 shrink-0 bi bi-telegram">
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09" />
                                     </svg>
