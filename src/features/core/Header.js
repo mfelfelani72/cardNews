@@ -24,7 +24,7 @@ export function Header(...props) {
     return (
         <>
             <div className="fixed top-0 left-0 right-0 shadow-md dark:shadow-slate-500 z-10">
-                <header className="p-3 bg-gradient-to-b from-gray-600 to-black w-full">
+                <header className="p-2 bg-gradient-to-b from-gray-600 to-black w-full">
                     <div className="flex flex-row">
 
                         {/* menu icon */}
@@ -73,9 +73,8 @@ export function Header(...props) {
 
                 <div className="md:mx-[12rem] w-full bg-B-bright dark:bg-DB-V-bright z-10">
                     <div className="flex flex-row">
-                        <div className="hidden sm:block bg-color-theme dark:bg-D-color-theme text-DT-bright text-center p-1 rounded-br-md font-semibold" >
-                            <span>breaking</span>
-                            <span className="pl-1">news</span>
+                        <div className="hidden sm:block bg-color-theme dark:bg-D-color-theme text-DT-bright text-center m-1 rounded-sm" >
+                            <span className="p-2 px-3">News</span>
                         </div>
                         <div className="mt-1 w-full">
                             <marquee>
