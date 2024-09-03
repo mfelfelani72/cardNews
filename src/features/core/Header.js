@@ -73,49 +73,18 @@ export function Header(...props) {
 
                 <div className="md:mx-[12rem] w-full bg-B-bright dark:bg-DB-V-bright z-10">
                     <div className="flex flex-row">
-                        <div className="hidden sm:block bg-color-theme dark:bg-D-color-theme text-DT-bright text-center p-2 rounded-br-md font-semibold" >
+                        <div className="hidden sm:block bg-color-theme dark:bg-D-color-theme text-DT-bright text-center p-1 rounded-br-md font-semibold" >
                             <span>breaking</span>
                             <span className="pl-1">news</span>
                         </div>
-                        <Swiper
-                            modules={[Autoplay, A11y]}
-                            speed={9000}
-                            spaceBetween={0} // Adjust the spacing as needed
-                            slidesPerView={1} // Show only one slide by default
-                            autoplay={{
-                                delay: 5000,
-                                disableOnInteraction: false,
-                            }}
-
-                        >
-                            <SwiperSlide key={1}>
-                                <div className="p-1 pt-2 hover:text-color-theme dark:hover:text-D-color-theme">
-                                    <a href="/news##">Can coffee make you a better developer? </a>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide key={1}>
-                                <div className="p-1 pt-2 hover:text-color-theme dark:hover:text-D-color-theme">
-                                    <a href="/news##">Can coffee make you a better developer? </a>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide key={1}>
-                                <div className="p-1 pt-2 hover:text-color-theme dark:hover:text-D-color-theme">
-                                    <a href="/news##">Can coffee make you a better developer? </a>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide key={1}>
-                                <div className="p-1 pt-2 hover:text-color-theme dark:hover:text-D-color-theme">
-                                    <a href="/news##">Can coffee make you a better developer? </a>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide key={1}>
-                                <div className="p-1 pt-2 hover:text-color-theme dark:hover:text-D-color-theme">
-                                    <a href="/news##">Can coffee make you a better developer? </a>
-                                </div>
-                            </SwiperSlide>
-                         
-                        
-                        </Swiper>
+                        <div className="mt-1 w-full">
+                            <marquee>
+                                <a href="#" className="mx-4 hover:text-color-theme dark:hover:text-D-color-theme">Lorem ipsum odor amet, consectetuer adipiscing elit</a>
+                                <a href="#" className="mx-4 hover:text-color-theme dark:hover:text-D-color-theme">Dictumst ullamcorper habitant porta consectetur orci sodales odio.</a>
+                                <a href="#" className="mx-4 hover:text-color-theme dark:hover:text-D-color-theme">Vehicula ornare odio maecenas curae ex pretium.</a>
+                                <a href="#" className="mx-4 hover:text-color-theme dark:hover:text-D-color-theme">Sociosqu donec in mollis euismod auctor venenatis nam auctor.</a>
+                            </marquee>
+                        </div>
 
                     </div>
                 </div >
@@ -128,6 +97,6 @@ export function Header(...props) {
                 </div>
                 {/* progress bar */}
             </div >
-        </> 
+        </>
     );
 }
