@@ -6,8 +6,6 @@ import { IoIosClose } from "react-icons/io";
 import { cn } from "../../../utils/lib/cn.js"
 
 export function Sidebar() {
-
-
     const { sidebarLink, statusSidebar, setStatusSidebar } = useAppStore((state) => ({
         sidebarLink: state.sidebarLink,
         statusSidebar: state.statusSidebar,
