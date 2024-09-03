@@ -80,7 +80,7 @@ module.exports = {
 
         // background
         'B-dim': '#1d232a',
-        'B-bright': '#64748b',
+        'B-bright': '#e2e8f0',
         'B-V-bright': '#fff',
 
         'color-theme': '#e57c43',
