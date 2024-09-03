@@ -1,15 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-import { cn } from "../../../utils/lib/cn.js"
-
-import { Autoplay, A11y } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import 'swiper/css/controller';
-
 import { IoMenu, IoMoon, IoSunny } from "react-icons/io5";
+import { Dropdown } from "flowbite-react";
 import useAppStore from "../../../utils/stores/AppStore.js";
 
 
@@ -43,6 +36,12 @@ export function Header(...props) {
 
                         <div className="basis-2/3 flex flex-row-reverse text-sm leading-6 font-semibold text-DT-bright ">
 
+                            <div className="hover:text-color-theme dark:hover:text-D-color-theme mx-4 my-auto">
+                                <Dropdown label="Language" inline>
+                                    <Dropdown.Item className="hover:bg-color-theme-light dark:hover:bg-D-color-theme-light hover:text-color-theme dark:hover:text-D-color-theme">EN</Dropdown.Item>
+                                    <Dropdown.Item className="hover:bg-color-theme-light dark:hover:bg-D-color-theme-light hover:text-color-theme dark:hover:text-D-color-theme" >FA</Dropdown.Item>
+                                </Dropdown>
+                            </div>
                             <div className="flex items-center border-l border-slate-200 ml-6 pl-6 hover:cursor-pointer hover:text-color-theme dark:hover:text-D-color-theme" onClick={() => {
                                 document.documentElement.classList.toggle("dark");
                             }}>
