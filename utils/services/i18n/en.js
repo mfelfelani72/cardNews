@@ -1,5 +1,7 @@
 const en = {
   login: "Login",
+  register: "Register",
+  news: "News",
 
 };
 

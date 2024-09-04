@@ -1,5 +1,7 @@
 const fa = {
   login: "ورود",
+  register: "ثبت نام",
+  news: "اخبار",
 
 };
 

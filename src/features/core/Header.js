@@ -36,10 +36,10 @@ export function Header(...props) {
                         {/* menu icon */}
 
                         {/* header title */}
-                        <h2 className="basis-1/3 hidden md:ml-[12rem] xs:block text-DT-bright  font-semibold text-xl"> AimoonHUB</h2>
+                        <h2 className="basis-1/3 hidden ltr:md:ml-[12rem] rtl:md:mr-[12rem] xs:block text-DT-bright font-semibold text-xl"> AimoonHUB</h2>
                         {/* header title */}
 
-                        <div className="basis-2/3 flex flex-row-reverse text-sm leading-6 font-semibold text-DT-bright ">
+                        <div className="basis-2/3 flex flex-row-reverse  text-sm leading-6 font-semibold text-DT-bright ">
 
                             {/* language */}
                             <div className="hover:text-color-theme dark:hover:text-D-color-theme mx-4 my-auto">
@@ -48,7 +48,7 @@ export function Header(...props) {
                             {/* language */}
 
                             {/* dark - light */}
-                            <div className="flex items-center border-l border-slate-200 ml-3 pl-3 hover:cursor-pointer hover:text-color-theme dark:hover:text-D-color-theme" onClick={() => {
+                            <div className="flex items-center ltr:border-l rtl:border-r border-slate-200 ltr:ml-3 ltr:pl-3 rtl:mr-3 rtl:pr-3 hover:cursor-pointer hover:text-color-theme dark:hover:text-D-color-theme" onClick={() => {
                                 document.documentElement.classList.toggle("dark");
                             }}>
                                 <span className="hidden dark:block">
@@ -61,15 +61,15 @@ export function Header(...props) {
                             {/* dark - light */}
 
                             {/* login - register */}
-                            <ul className="flex items-center space-x-4 text-sm">
+                            <ul className="flex items-center space-x-1 text-sm ">
                                 <li>
-                                    <a className="text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme" href="/login">
+                                    <a className="text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme px-2" href="/login">
                                         {t('login')}
                                     </a>
                                 </li>
                                 <li>
-                                    <a className="text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme" href="/register">
-                                        Register
+                                    <a className="text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme px-2" href="/register">
+                                        {t('register')}
                                     </a>
                                 </li>
                             </ul>
@@ -84,7 +84,7 @@ export function Header(...props) {
                 <div className="md:mx-[12rem] w-full bg-B-bright dark:bg-DB-V-bright z-10">
                     <div className="flex flex-row">
                         <div className="hidden sm:block bg-color-theme dark:bg-D-color-theme text-DT-bright text-center m-1 rounded-sm" >
-                            <span className="p-2 px-3">News</span>
+                            <span className="p-2 px-3">{t('news')}</span>
                         </div>
                         <div className="mt-1 w-full">
                             <marquee>
@@ -102,7 +102,7 @@ export function Header(...props) {
                 {/* progress bar */}
                 <div className="bg-slate-50">
                     <div className="md:mx-[12rem] h-1 w-[98%] xs:w-[99%] sm:w-[74%] md:w-[77%] bi:w-[78%] lg:w-[79%] xl:w-[83%]  z-10">
-                        <div className="h-1 bg-color-theme dark:bg-D-color-theme rounded-r-xl " style={{ width: progressBar }}></div>
+                        <div className="h-1 bg-color-theme dark:bg-D-color-theme ltr:rounded-r-xl rtl:rounded-l-xl " style={{ width: progressBar }}></div>
                     </div>
                 </div>
                 {/* progress bar */}
