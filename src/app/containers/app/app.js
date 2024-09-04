@@ -97,7 +97,7 @@ const App = () => {
     if (guestRoutes.includes(pathname)) {
 
         return (
-            <>
+            <div className="font-main">
                 {loading
                     ?
                     <div className="h-screen w-screen flex items-center justify-center px-16 bg-B-V-bright dark:bg-DB-bright">
@@ -117,7 +117,7 @@ const App = () => {
                 }
 
 
-            </>
+            </div>
         );
     }
     // else if (adminRoutes.includes(pathname)) {
