@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import useAppStore from "../../../../utils/stores/AppStore.js";
+import i18n from "../../../../utils/services/i18n";
 
 import "../../styles/app/app.css";
 
@@ -56,6 +57,18 @@ const App = () => {
     // task for loading
 
     useEffect(() => {
+
+        // initial language
+
+        const rootHtml = document.getElementById("root-html");
+
+        if (rootHtml && localStorage.getItem("currentLngId") && localStorage.getItem("currentLngDir")) {
+
+            i18n.changeLanguage(localStorage.getItem("currentLngId"));
+            rootHtml.setAttribute("dir", localStorage.getItem("currentLngDir"));
+        }
+
+        // initial language
 
         // initial dark mode
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
