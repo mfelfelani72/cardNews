@@ -4,6 +4,8 @@ const en = {
 
   login: "Login",
   register: "Register",
+  persion: "Persion",
+  english: "English",
   news: "News",
 
   // header

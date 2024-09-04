@@ -4,13 +4,16 @@ import { Dropdown } from "flowbite-react";
 import ReactCountryFlag from "react-country-flag";
 import { IoLanguageSharp } from "react-icons/io5";
 
+import { useTranslation } from "react-i18next";
 import useAppStore from "../../../../utils/stores/AppStore.js";
 
 export default function Languages() {
 
+    const { t } = useTranslation();
+
     const languageList = [
-        { id: 'fa', flag: "IR", dir: "rtl", name: "Iran" },
-        { id: 'en', flag: "GB", dir: "ltr", name: "Engish" },
+        { id: 'fa', flag: "IR", dir: "rtl", name: t('persion') },
+        { id: 'en', flag: "GB", dir: "ltr", name: t('english') },
     ]
 
     const { setLanguageApp } = useAppStore((state) => ({
