@@ -95,7 +95,7 @@ const App = () => {
                         <Header />
 
                         <Sidebar />
-                        <div className="md:ml-[12rem] mt-20 p-8 bg-B-V-bright dark:bg-DB-dim">
+                        <div className="ltr:md:ml-[12rem] rtl:md:mr-[12rem] mt-20 p-8 bg-B-V-bright dark:bg-DB-dim">
                             <GuestRoutes />
                         </div>
 

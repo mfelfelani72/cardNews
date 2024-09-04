@@ -1,5 +1,24 @@
 import { create } from "zustand";
 
+import i18n from "../services/i18n";
+
+
+function configureLang(id, dir) {
+
+    i18n.changeLanguage(id);
+
+    const rootHtml = document.getElementById("root-html");
+
+    if (rootHtml && dir == 'rtl')
+        rootHtml.setAttribute("dir", 'rtl');
+
+    else
+        rootHtml.setAttribute("dir", 'ltr');
+
+    return id;
+
+}
+
 const useAppStore = create((set) => ({
 
     //    Loading
@@ -25,6 +44,16 @@ const useAppStore = create((set) => ({
     setProgressBar: (progressBar) => set({ progressBar: progressBar }),
 
     //    header 
+
+    //    language
+
+
+
+    languageApp: '',
+    setLanguageApp: (id, dir) => set({
+        languageApp: configureLang(id, dir)
+    })
+    //    language
 
 }))
 

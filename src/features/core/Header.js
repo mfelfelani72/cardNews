@@ -2,47 +2,53 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 import { IoMenu, IoMoon, IoSunny } from "react-icons/io5";
-import { Dropdown } from "flowbite-react";
 import useAppStore from "../../../utils/stores/AppStore.js";
+import Languages from "./components/Languages.jsx";
+import { useTranslation } from "react-i18next";
 
 
 export function Header(...props) {
 
-    const { statusSidebar, setStatusSidebar, progressBar } = useAppStore((state) => ({
+    const { t } = useTranslation();
+
+    const { statusSidebar, setStatusSidebar, progressBar, setLanguageApp } = useAppStore((state) => ({
         statusSidebar: state.statusSidebar,
         setStatusSidebar: state.setStatusSidebar,
         progressBar: state.progressBar,
+        setLanguageApp: state.setLanguageApp,
     }))
 
     return (
         <>
             <div className="fixed top-0 left-0 right-0 shadow-md dark:shadow-slate-500 z-10">
+
+                {/* header */}
                 <header className="p-2 bg-gradient-to-b from-gray-600 to-black w-full">
                     <div className="flex flex-row">
 
                         {/* menu icon */}
-                        <div className="hover:cursor-pointer md:hidden text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme font-semibold text-2xl
-                         mr-3 pt-1"
-                            onClick={() => {
-                                statusSidebar === "block" ? setStatusSidebar("hidden") : setStatusSidebar("flex")
+                        <div className="hover:cursor-pointer md:hidden text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme font-semibold text-2xl mr-3 pt-1"
+                            onClick={() => { statusSidebar === "block" ? setStatusSidebar("hidden") : setStatusSidebar("flex") }}>
 
-                            }}
-                        >
                             <IoMenu />
+
                         </div>
                         {/* menu icon */}
 
-                        <h2 className="basis-1/3 hidden md:ml-[12rem] xs:block text-DT-bright  font-semibold text-2xl">AimoonHUB</h2>
+                        {/* header title */}
+                        <h2 className="basis-1/3 hidden md:ml-[12rem] xs:block text-DT-bright  font-semibold text-xl"> AimoonHUB</h2>
+                        {/* header title */}
 
                         <div className="basis-2/3 flex flex-row-reverse text-sm leading-6 font-semibold text-DT-bright ">
 
+                            {/* language */}
                             <div className="hover:text-color-theme dark:hover:text-D-color-theme mx-4 my-auto">
-                                <Dropdown label="Language" inline>
-                                    <Dropdown.Item className="hover:bg-color-theme-light dark:hover:bg-D-color-theme-light hover:text-color-theme dark:hover:text-D-color-theme">EN</Dropdown.Item>
-                                    <Dropdown.Item className="hover:bg-color-theme-light dark:hover:bg-D-color-theme-light hover:text-color-theme dark:hover:text-D-color-theme" >FA</Dropdown.Item>
-                                </Dropdown>
+                                <Languages />
                             </div>
-                            <div className="flex items-center border-l border-slate-200 ml-6 pl-6 hover:cursor-pointer hover:text-color-theme dark:hover:text-D-color-theme" onClick={() => {
+                            {/* language */}
+
+                            {/* dark - light */}
+                            <div className="flex items-center border-l border-slate-200 ml-3 pl-3 hover:cursor-pointer hover:text-color-theme dark:hover:text-D-color-theme" onClick={() => {
                                 document.documentElement.classList.toggle("dark");
                             }}>
                                 <span className="hidden dark:block">
@@ -52,11 +58,13 @@ export function Header(...props) {
                                     <IoMoon />
                                 </span>
                             </div>
+                            {/* dark - light */}
 
-                            <ul className="flex items-center space-x-8">
+                            {/* login - register */}
+                            <ul className="flex items-center space-x-4 text-sm">
                                 <li>
                                     <a className="text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme" href="/login">
-                                        Login
+                                        {t('login')}
                                     </a>
                                 </li>
                                 <li>
@@ -65,11 +73,14 @@ export function Header(...props) {
                                     </a>
                                 </li>
                             </ul>
+                            {/* login - register */}
 
                         </div>
                     </div>
                 </header >
+                {/* header */}
 
+                {/* subtitle news */}
                 <div className="md:mx-[12rem] w-full bg-B-bright dark:bg-DB-V-bright z-10">
                     <div className="flex flex-row">
                         <div className="hidden sm:block bg-color-theme dark:bg-D-color-theme text-DT-bright text-center m-1 rounded-sm" >
@@ -86,6 +97,7 @@ export function Header(...props) {
 
                     </div>
                 </div >
+                {/* subtitle news */}
 
                 {/* progress bar */}
                 <div className="bg-slate-50">
