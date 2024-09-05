@@ -16,7 +16,7 @@ const Slider = (props) => {
 
     return (
         
-        <div className="bg-white border-2 mb-2 p-2 z-10">
+        <div className="ltr bg-white border-2 mb-2 p-2 z-10">
 
 
             <Swiper
@@ -34,7 +34,7 @@ const Slider = (props) => {
 
                 {props.news?.map((row, index) => (
                     <SwiperSlide key={index}>
-                        <div className="flex flex-row">
+                        <div className="flex ltr:flex-row rtl:flex-row-reverse">
                             <div className="basis-2/4">
                                 <div className="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                                     <div className="mb-8">
