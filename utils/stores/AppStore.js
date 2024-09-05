@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { devtools, persist } from 'zustand/middleware'
 
 import i18n from "../services/i18n";
 
@@ -26,7 +25,7 @@ const useAppStore = create((set) => ({
 
     //    Loading
 
-    loading: false,
+    loading: true,
     setLoading: (loading) => set({ loading: loading }),
 
     //    Loading

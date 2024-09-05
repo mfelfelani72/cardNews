@@ -6,6 +6,17 @@ import useAppStore from "../../../utils/stores/AppStore.js";
 import Languages from "./components/Languages.jsx";
 import { useTranslation } from "react-i18next";
 
+function handleSwitchTheme() {
+    
+    if (document.documentElement.classList.value)
+        localStorage.setItem("theme", "");
+    else
+        localStorage.setItem("theme", "dark");
+
+    
+    document.documentElement.classList.toggle("dark");
+
+}
 
 export function Header(...props) {
 
@@ -27,7 +38,7 @@ export function Header(...props) {
                     <div className="flex flex-row">
 
                         {/* menu icon */}
-                        <div className="hover:cursor-pointer md:hidden text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme font-semibold text-2xl mr-3 pt-1"
+                        <div className="hover:cursor-pointer md:hidden text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme font-semibold text-2xl ltr:mr-3 rtl:ml-3"
                             onClick={() => { statusSidebar === "block" ? setStatusSidebar("hidden") : setStatusSidebar("flex") }}>
 
                             <IoMenu />
@@ -48,9 +59,7 @@ export function Header(...props) {
                             {/* language */}
 
                             {/* dark - light */}
-                            <div className="flex items-center ltr:border-l rtl:border-r border-slate-200 ltr:ml-3 ltr:pl-3 rtl:mr-3 rtl:pr-3 hover:cursor-pointer hover:text-color-theme dark:hover:text-D-color-theme" onClick={() => {
-                                document.documentElement.classList.toggle("dark");
-                            }}>
+                            <div className="flex items-center ltr:border-l rtl:border-r border-slate-200 ltr:ml-3 ltr:pl-3 rtl:mr-3 rtl:pr-3 hover:cursor-pointer hover:text-color-theme dark:hover:text-D-color-theme" onClick={() => handleSwitchTheme()}>
                                 <span className="hidden dark:block">
                                     <IoSunny />
                                 </span>

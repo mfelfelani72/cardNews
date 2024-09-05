@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from "react-router-dom";
 
 import { AllNews } from "../../features/news/allNews"
 
 const GuestRoutes = () => {
+
+    useEffect(() => {
+
+        // initial dark mode
+
+        if (localStorage.getItem("theme") == 'dark')
+            document.documentElement.classList.add("dark");
+        
+        // initial dark mode
+
+    }, [])
+
+
     return (
 
         <Routes>

@@ -71,7 +71,8 @@ const App = () => {
         // initial language
 
         // initial dark mode
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ||
+            localStorage.getItem("theme") === 'dark') {
             document.documentElement.classList.add("dark");
         }
         else {
