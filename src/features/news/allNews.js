@@ -21,12 +21,7 @@ export function AllNews() {
 
     const getNews = async () => {
 
-        // console.log(await axios.post('/News/GetNewsbyDateCategory/', {data}, {
-        //     headers: headers
-        // }
-        // ));
         try {
-
             const result = await axios
                 .get('/test')
                 .then(response => {
@@ -35,14 +30,10 @@ export function AllNews() {
                         setNews(response.data.data.result);
                     }
                 });
-
         }
         catch (e) {
             console.log(e);
         }
-        // await axios.post('/api/news').then(function (response) {
-        //     setNews(response.data.data.result);
-        // });
     }
 
 
@@ -66,20 +57,104 @@ export function AllNews() {
     return (
 
         <>
-            <h2 className="font-semibold pb-2">Latest News</h2>
+            {news ?
+                <>
+                    <h2 className="font-semibold pb-2">Latest News</h2>
 
-            <Slider news={news} />
+                    <Slider news={news} />
 
-            <h2 className="font-semibold pb-2">News</h2>
+                    <h2 className="font-semibold pb-2">News</h2>
 
-            {news?.map((row) => (
+                    {news.map((row) => (
 
-                <React.Fragment key={row.aimoonhub_id}>
+                        <React.Fragment key={row.aimoonhub_id}>
 
-                    <CardRow row={row} />
+                            <CardRow row={row} />
 
-                </React.Fragment>
-            ))}
+                        </React.Fragment>
+                    ))}
+                </>
+
+                :
+
+                < div >
+                    {<div className="flex flex-wrap justify-center">
+
+                        <div className="flex w-52 flex-col gap-4 px-3 pb-6">
+                            <div className="skeleton h-32 w-full"></div>
+                            <div className="skeleton h-4 w-28"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                        </div>
+                        <div className="flex w-52 flex-col gap-4 px-3 pb-6">
+                            <div className="skeleton h-32 w-full"></div>
+                            <div className="skeleton h-4 w-28"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                        </div>
+                        <div className="flex w-52 flex-col gap-4 px-3 pb-6">
+                            <div className="skeleton h-32 w-full"></div>
+                            <div className="skeleton h-4 w-28"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                        </div>
+                        <div className="flex w-52 flex-col gap-4 px-3 pb-6">
+                            <div className="skeleton h-32 w-full"></div>
+                            <div className="skeleton h-4 w-28"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                        </div>
+                        <div className="flex w-52 flex-col gap-4 px-3 pb-6">
+                            <div className="skeleton h-32 w-full"></div>
+                            <div className="skeleton h-4 w-28"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                        </div>
+                        <div className="flex w-52 flex-col gap-4 px-3 pb-6">
+                            <div className="skeleton h-32 w-full"></div>
+                            <div className="skeleton h-4 w-28"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                        </div>
+                        <div className="flex w-52 flex-col gap-4 px-3 pb-6">
+                            <div className="skeleton h-32 w-full"></div>
+                            <div className="skeleton h-4 w-28"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                        </div>
+                        <div className="flex w-52 flex-col gap-4 px-3 pb-6">
+                            <div className="skeleton h-32 w-full"></div>
+                            <div className="skeleton h-4 w-28"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                        </div>
+                        <div className="flex w-52 flex-col gap-4 px-3 pb-6">
+                            <div className="skeleton h-32 w-full"></div>
+                            <div className="skeleton h-4 w-28"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                        </div>
+                        <div className="flex w-52 flex-col gap-4 px-3 pb-6">
+                            <div className="skeleton h-32 w-full"></div>
+                            <div className="skeleton h-4 w-28"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                            <div className="skeleton h-4 w-full"></div>
+                        </div>
+
+                    </div>}
+
+                </div >
+            }
 
         </>
     );

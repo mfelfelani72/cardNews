@@ -91,12 +91,12 @@ export function Header(...props) {
 
                 {/* subtitle news */}
                 <div className="md:mx-[12rem] w-full bg-B-bright dark:bg-DB-V-bright z-10">
-                    <div className="flex flex-row">
-                        <div className="hidden sm:block bg-color-theme dark:bg-D-color-theme text-DT-bright text-center m-1 rounded-sm p-1" >
-                            <span className="px-2">{t('news')}</span>
+                    <div className="flex flex-row items-center p-1">
+                        <div className="hidden sm:block bg-color-theme dark:bg-D-color-theme text-DT-bright text-center rounded-sm mx-1" >
+                            <div className="px-2">{t('news')}</div>
                         </div>
-                        <div className="mt-1 w-full">
-                            <marquee>
+                        <div className="w-full">
+                            <marquee className="flex flex-row items-center">
                                 <a href="#" className="mx-4 hover:text-color-theme dark:hover:text-D-color-theme">Lorem ipsum odor amet, consectetuer adipiscing elit</a>
                                 <a href="#" className="mx-4 hover:text-color-theme dark:hover:text-D-color-theme">Dictumst ullamcorper habitant porta consectetur orci sodales odio.</a>
                                 <a href="#" className="mx-4 hover:text-color-theme dark:hover:text-D-color-theme">Vehicula ornare odio maecenas curae ex pretium.</a>
