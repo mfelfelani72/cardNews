@@ -25,16 +25,21 @@ export function AllNews() {
         //     headers: headers
         // }
         // ));
+        try {
 
-        await axios.get('/test').then(function (response) {
-            if (response.data.data.result) {
-                console.log("Fetch data done.")
-                setNews(response.data.data.result);
-            }
-            else
-                console.log("Fetch data failed.")
-        });
+            const result = await axios
+                .get('/test')
+                .then(response => {
+                    if (response.data.data.result) {
+                        console.log("Fetch data done.")
+                        setNews(response.data.data.result);
+                    }
+                });
 
+        }
+        catch (e) {
+            console.log(e);
+        }
         // await axios.post('/api/news').then(function (response) {
         //     setNews(response.data.data.result);
         // });
@@ -48,12 +53,6 @@ export function AllNews() {
     useEffect(() => {
 
         if (!news) {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.documentElement.classList.add("dark");
-            }
-            else {
-                document.documentElement.classList.remove("dark");
-            }
             setSidebarLink("news");
             getNews();
         }
