@@ -83,8 +83,8 @@ export function Header(...props) {
                 {/* subtitle news */}
                 <div className="md:mx-[12rem] w-full bg-B-bright dark:bg-DB-V-bright z-10">
                     <div className="flex flex-row">
-                        <div className="hidden sm:block bg-color-theme dark:bg-D-color-theme text-DT-bright text-center m-1 rounded-sm" >
-                            <span className="p-2 px-3">{t('news')}</span>
+                        <div className="hidden sm:block bg-color-theme dark:bg-D-color-theme text-DT-bright text-center m-1 rounded-sm p-1" >
+                            <span className="px-2">{t('news')}</span>
                         </div>
                         <div className="mt-1 w-full">
                             <marquee>
