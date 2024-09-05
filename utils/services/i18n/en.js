@@ -9,6 +9,13 @@ const en = {
   news: "News",
 
   // header
+
+  // footer
+
+  copyright: 'All rights reserved',
+
+
+  // footer
 };
 
 export default en;

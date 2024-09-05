@@ -10,6 +10,13 @@ const fa = {
 
   // header
 
+  // footer
+
+  copyright: 'تمامی حقوق محفوظ است',
+
+
+  // footer
+
 };
 
 export default fa;
