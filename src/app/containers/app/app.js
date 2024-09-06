@@ -27,13 +27,15 @@ class Task {
 
 const App = () => {
 
+    // { load Global States from zustand
     const { loading, setProgressBar } = useAppStore((state) => ({
         progressBar: state.progressBar,
         setProgressBar: state.setProgressBar,
         loading: state.loading,
     }))
+    // load Global States from zustand }
 
-    // for calculate scroll page
+    // { for calculate scroll page
     const updateScrollCompletion = () => {
         const currentProgress = window.scrollY;
         const scrolHeight = document.body.scrollHeight - window.innerHeight;
@@ -42,9 +44,9 @@ const App = () => {
             setProgressBar(String(Number((currentProgress / scrolHeight).toFixed(2)) * 100) + '%');
         }
     }
-    // for calculate scroll page
+    // for calculate scroll page }
 
-    // task for loading
+    // { task for loading
     const tasks = [
         new Task({
             action: () => new Promise(resolve => setTimeout(resolve, 2000)),
@@ -54,11 +56,11 @@ const App = () => {
         }),
 
     ];
-    // task for loading
+    // task for loading }
 
     useEffect(() => {
 
-        // initial language
+        // { initial language
 
         const rootHtml = document.getElementById("root-html");
 
@@ -68,9 +70,9 @@ const App = () => {
             rootHtml.setAttribute("dir", localStorage.getItem("currentLngDir"));
         }
 
-        // initial language
+        // initial language }
 
-        // initial dark mode
+        // { initial theme mode (dark or light)
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ||
             localStorage.getItem("theme") === 'dark') {
             document.documentElement.classList.add("dark");
@@ -78,22 +80,27 @@ const App = () => {
         else {
             document.documentElement.classList.remove("dark");
         }
-        // initial dark mode
+        // initial theme mode }
 
-        // call function to calculate scroll
+        // { call function to calculate scroll
         window.addEventListener('scroll', updateScrollCompletion);
-        // call function to calculate scroll
+        // call function to calculate scroll }
 
 
     }, []);
 
+    // { define public or private routes (guest or admin)
+
     const location = useLocation();
     const { pathname } = location;
-
 
     const guestRoutes = ["/", "/news"];
 
     // const AdminRoutes = ["/dashboard"];
+
+    // define public or private routes }
+
+    // { guest routes
 
     if (guestRoutes.includes(pathname)) {
 
@@ -101,10 +108,13 @@ const App = () => {
             <div className="font-main">
                 {loading
                     ?
+                    // { first loading app
                     <div className="h-screen w-screen flex items-center justify-center px-16 bg-B-V-bright dark:bg-DB-bright">
                         <Loading tasks={tasks} />
                     </div>
+                    // first loading app }
                     :
+                    // { load app for guest users
                     <>
                         <Header />
 
@@ -115,12 +125,16 @@ const App = () => {
 
                         <Footer />
                     </>
+                    // load app for guest users }
                 }
-
-
             </div>
         );
     }
+
+    // guest routes }
+
+    // { admin routes
+
     // else if (adminRoutes.includes(pathname)) {
 
     //     return (
@@ -128,11 +142,14 @@ const App = () => {
     //     );
     // }
 
+    // admin routes }
+
+    // { page 404
     else
         return (
             <h6>page 404</h6>
         );
-
+    // page 404 }
 
 };
 
