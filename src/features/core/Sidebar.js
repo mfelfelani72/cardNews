@@ -6,6 +6,7 @@ import { IoIosClose } from "react-icons/io";
 import { cn } from "../../../utils/lib/cn.js"
 import { useTranslation } from "react-i18next";
 import { stringHelper } from "../../../utils/helpers/stringHelper.js";
+import { Footer } from "./Footer.js";
 
 export function Sidebar() {
 
@@ -116,6 +117,7 @@ export function Sidebar() {
                                 </a>
 
                             </div>
+                            
                         </li>
                         {/* social media */}
 
@@ -124,6 +126,7 @@ export function Sidebar() {
                 </nav>
 
             </div>
+            <Footer />
         </div>
     );
 }

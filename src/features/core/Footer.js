@@ -7,14 +7,19 @@ export function Footer() {
     const { t } = useTranslation();
 
     return (
-        <footer className="bg-B-bright/30 dark:bg-DB-dim/95">
-            <div className="h-16 py-2 ltr:md:ml-[12.5rem] rtl:md:mr-[12.5rem]">
-                <div className="text-sm/6 text-T-bright dark:text-DT-bright text-center flex-col ltr">
+        // <footer className="bg-B-bright/30 dark:bg-DB-dim/95">
+        <footer className="">
+            {/* <div className="h-16 py-2 ltr:md:ml-[12.5rem] rtl:md:mr-[12.5rem]"> */}
+            <div className="h-16 py-2">
+                {/* <div className="text-sm/6 text-T-bright dark:text-DT-bright text-center flex-col ltr"> */}
+                <div className="text-sm/6  text-center flex-col ltr">
                     <p>
-                        <span>© 2024 <a href="#" className="text-color-theme dark:text-D-color-theme">AimoonHUB</a></span>
+                        <span className="text-T-bright dark:text-DT-bright">© 2024 <a href="#" className="text-color-theme dark:text-D-color-theme">
+                            AimoonHUB</a>
+                        </span>
                     </p>
                     <p>
-                        <span>{t('copyright')}</span>
+                        <span className="text-T-bright dark:text-DT-bright">{t('copyright')}</span>
                     </p>
                 </div>
             </div>

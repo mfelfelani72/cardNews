@@ -1,41 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../../utils/services/news/api";
-import CardRow from "../core/components/CardRow.jsx";
-
 import useAppStore from "../../../utils/stores/AppStore.js"
 
-import Slider from "../core/components/Slider.jsx";
+
+const PAGE_NUMBER = 1;
+const ROW_KEY = 1;
 
 export function AllNews() {
 
-    const [news, setNews] = useState(null);
-
-    const headers = {
-        'Authorization': '92223bf504efcfd0e6e000ba1f4d53f4'
-    }
-    const data = {
-        'symbols': 'all',
-        'startDate': '1717939311',
-        'category': 'cryptocurrencies',
-    }
-
-    const getNews = async () => {
-
-        try {
-            const result = await axios
-                .get('/test')
-                .then(response => {
-                    if (response.data.data.result) {
-                        console.log("Fetch data done.")
-                        setNews(response.data.data.result);
-                    }
-                });
-        }
-        catch (e) {
-            console.log(e);
-        }
-    }
-
+    const [page, setPage] = useState(PAGE_NUMBER);
+    const [news, setNews] = useState([]);
 
     const { setSidebarLink } = useAppStore((state) => ({
         setSidebarLink: state.setSidebarLink,
@@ -43,121 +17,91 @@ export function AllNews() {
 
     useEffect(() => {
 
-        if (!news) {
-            setSidebarLink("news");
-            getNews();
+        setSidebarLink("news");
+
+
+        setTimeout(async () => {
+            const result = await axios.post(
+                `http://localhost:8000/api/test2/`, 'category=cryptocurrencies&symbols=all&from=1716373411&to=1725633001&pageLimit=10&page=2'
+            ).then(response => {
+                if (response.data.data.result) {
+                    console.log("Fetch data done.")
+                    setNews((prev) => {
+                        return [...prev, ...response.data.data.result];
+                    });
+                    // setLoading(false);
+                }
+            });
+
+        }, 1500);
+
+
+    }, [page]);
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const handleScroll = async () => {
+        if (
+            window.innerHeight + document.documentElement.scrollTop + 1 >=
+            document.documentElement.scrollHeight
+        ) {
+            // setLoading(true);
+            setPage((prev) => prev + 1);
         }
+    };
 
-        setTimeout(() => {
-            getNews();
-        }, 10000);
-
-    }, [news]);
 
     return (
 
         <>
-            {news ?
-                <>
-                    <h2 className="font-semibold pb-2">Latest News</h2>
-
-                    <Slider news={news} />
-
-                    <h2 className="font-semibold pb-2">News</h2>
+            <div className="flex flex-row">
+                <div className="w-[70%]">
 
                     {news.map((row) => (
 
                         <React.Fragment key={row.aimoonhub_id}>
 
-                            <CardRow row={row} />
+                            <div className="border-b">
+                                <div className="p-4">{row.title}</div>
+                            </div>
 
                         </React.Fragment>
                     ))}
-                </>
 
-                :
 
-                < div >
-                    {
-                        <div className="flex flex-wrap justify-center">
-
-                            <div className="flex w-52 flex-col gap-4 px-3 pb-6">
-                                <div className="skeleton h-32 w-full"></div>
-                                <div className="skeleton h-4 w-28"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                            </div>
-                            <div className="flex w-52 flex-col gap-4 px-3 pb-6">
-                                <div className="skeleton h-32 w-full"></div>
-                                <div className="skeleton h-4 w-28"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                            </div>
-                            <div className="flex w-52 flex-col gap-4 px-3 pb-6">
-                                <div className="skeleton h-32 w-full"></div>
-                                <div className="skeleton h-4 w-28"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                            </div>
-                            <div className="flex w-52 flex-col gap-4 px-3 pb-6">
-                                <div className="skeleton h-32 w-full"></div>
-                                <div className="skeleton h-4 w-28"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                            </div>
-                            <div className="flex w-52 flex-col gap-4 px-3 pb-6">
-                                <div className="skeleton h-32 w-full"></div>
-                                <div className="skeleton h-4 w-28"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                            </div>
-                            <div className="flex w-52 flex-col gap-4 px-3 pb-6">
-                                <div className="skeleton h-32 w-full"></div>
-                                <div className="skeleton h-4 w-28"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                            </div>
-                            <div className="flex w-52 flex-col gap-4 px-3 pb-6">
-                                <div className="skeleton h-32 w-full"></div>
-                                <div className="skeleton h-4 w-28"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                            </div>
-                            <div className="flex w-52 flex-col gap-4 px-3 pb-6">
-                                <div className="skeleton h-32 w-full"></div>
-                                <div className="skeleton h-4 w-28"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                            </div>
-                            <div className="flex w-52 flex-col gap-4 px-3 pb-6">
-                                <div className="skeleton h-32 w-full"></div>
-                                <div className="skeleton h-4 w-28"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                            </div>
-                            <div className="flex w-52 flex-col gap-4 px-3 pb-6">
-                                <div className="skeleton h-32 w-full"></div>
-                                <div className="skeleton h-4 w-28"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                                <div className="skeleton h-4 w-full"></div>
-                            </div>
-
-                        </div>
-                    }
-
-                </div >
-            }
-
+                </div>
+                <div className="w-[30%] border-l">
+                    <div className="fixed">
+                        <div className="">start</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">sadsa</div>
+                        <div className="">end</div>
+                    </div>
+                </div>
+            </div>
         </>
     );
 }
