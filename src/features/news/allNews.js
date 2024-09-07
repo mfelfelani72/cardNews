@@ -48,6 +48,7 @@ export function AllNews() {
                         });
 
                         setViewNews(response.data.data.result[0]);
+                        console.log(newsPage);
                         setNewsPage((prev) => prev + 1);
                         setLoading(false);
                     }
@@ -83,6 +84,7 @@ export function AllNews() {
 
     }, [news, viewNews, newsPage]);
 
+    let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
 
     return (
         <>
@@ -90,7 +92,7 @@ export function AllNews() {
                 news.length != 0 ?
 
                     < div className="flex flex-row bg-B-V-bright dark:bg-DB-dim text-T-bright dark:text-DT-bright" >
-                        <div className="w-[70%]">
+                        <div className="w-[73%]">
 
                             {news.map((row, index) => (
 
@@ -100,9 +102,14 @@ export function AllNews() {
                             {loading && <Loader />}
 
                         </div>
-                        <div className="w-[30%] border-l">
-                            <div className="fixed">
-                                <div className="">{viewNews?.title}</div>
+                        <div className="w-[25%] border-l">
+                            <div style={{ maxHeight: `calc(100% - 5rem)` }}
+                                className="fixed overflow-auto">
+                                <div className="">
+                                    <img className="h-[150px] w-[100%]" src={viewNews.thImage == " " ? defaultImage : viewNews.thImage} alt="" />
+                                </div>
+                                <div className="p-3"><span className="text-color-theme text-sm font-semibold">LLM AI : </span> {viewNews?.summaryEn}</div>
+                                <div className="p-3">{viewNews?.articleBody}</div>
                             </div>
                         </div>
                     </div >
