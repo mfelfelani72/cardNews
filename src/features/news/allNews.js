@@ -89,7 +89,7 @@ export function AllNews() {
             {
                 news.length != 0 ?
 
-                    < div className="flex flex-row" >
+                    < div className="flex flex-row bg-B-V-bright dark:bg-DB-dim text-T-bright dark:text-DT-bright" >
                         <div className="w-[70%]">
 
                             {news.map((row, index) => (
