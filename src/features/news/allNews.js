@@ -4,6 +4,7 @@ import axios from "../../../utils/services/news/api";
 import Loader from "../core/components/Loader.jsx"
 
 import useAppStore from "../../../utils/stores/AppStore.js"
+import Skeleton from "./Skeleton.js";
 
 const PAGE_NUMBER = 1;
 
@@ -32,6 +33,7 @@ export function AllNews() {
                         setNews((prev) => {
                             return [...prev, ...response.data.data.result];
                         });
+                        setNewsPage((prev) => prev + 1);
                         setLoading(false);
                     }
                 });
@@ -48,7 +50,6 @@ export function AllNews() {
             document.documentElement.scrollHeight
         ) {
             setLoading(true);
-            setNewsPage((prev) => prev + 1);
             console.log(newsPage);
             getNews();
         }
@@ -60,41 +61,49 @@ export function AllNews() {
 
     useEffect(() => {
 
+        if (news.length == 0)
+            getNews();
+
         setSidebarLink("news");
 
         window.addEventListener("scroll", handleScroll);
 
         return () => window.removeEventListener("scroll", handleScroll);
 
-    }, [news]);
-
-    // useEffect(() => {
-
-    // }, [newsPage]);
+    }, [news, newsPage]);
 
     return (
-
         <>
-            <div className="flex flex-row">
-                <div className="w-[70%]">
+            {
+                news.length != 0 ?
 
-                    {news.map((row, index) => (
+                    < div className="flex flex-row" >
+                        <div className="w-[70%]">
 
-                        <div className="border-b" key={index}>
-                            <div className="p-4">{row.title}</div>
+                            {news.map((row, index) => (
+
+                                <div className="border-b" key={index}>
+                                    <div className="p-4">{row.title}</div>
+                                </div>
+
+                            ))}
+                            {loading && <Loader />}
+
                         </div>
+                        <div className="w-[30%] border-l">
+                            <div className="fixed">
+                                <div className="">{news[0]?.title}</div>
+                            </div>
+                        </div>
+                    </div >
 
-                    ))}
-                    {loading && <Loader />}
+                    :
 
-                </div>
-                <div className="w-[30%] border-l">
-                    <div className="fixed">
-                        <div className="">{news[0]?.title}</div>
-                    </div>
-                </div>
-            </div>
+                    <Skeleton />
+
+            }
         </>
+
     );
 }
 

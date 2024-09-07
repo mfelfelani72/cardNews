@@ -2,7 +2,7 @@ import React from 'react'
 
 const Skeleton = () => {
     return (
-        <div className="flex flex-wrap justify-center">
+        <div className="flex flex-wrap justify-center pt-10">
 
             <div className="flex w-52 flex-col gap-4 px-3 pb-6">
                 <div className="skeleton h-32 w-full"></div>
