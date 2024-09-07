@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { dateHelper } from "../../../../utils/helpers/dateHelper.js";
 import { stringHelper } from "../../../../utils/helpers/stringHelper.js";
 
@@ -13,11 +13,14 @@ const CardRow = (props) => {
         setViewNews: state.setViewNews,
     }))
 
+    const [active, setActive] = useState(false);
+
     return (
-        <>
-            <div className="bg-slate-50 dark:bg-DB-dim px-3 pt-1 pb-2 border-b border-color-theme-light dark:border-D-color-theme-light">
+        <div className={active ? "bg-color-theme-light dark:bg-D-color-theme-light" : "bg-slate-50 dark:bg-DB-dim"}>
+            <div className="px-3 pt-1 pb-2 border-b border-color-theme-light dark:border-D-color-theme-light">
                 <div className="px-2 pt-2 cursor-pointer text-T-dim dark:text-DT-title hover:text-color-theme dark:hover:text-D-color-theme">
-                    <a onClick={() => { setViewNews(props.row); document.getElementById('viewNews').scrollTop = 0; }}>{props.row.title}</a>
+                    <a className="text-color-theme"
+                        onClick={() => { setViewNews(props.row); document.getElementById('viewNews').scrollTop = 0; setActive(true) }}>{props.row.title}</a>
                 </div>
                 <div className="px-2 text-sm">{stringHelper(props.row.articleBody, 30)}</div>
 
@@ -45,7 +48,7 @@ const CardRow = (props) => {
                     : ""
                 }
             </div>
-        </>
+        </div>
     );
 }
 
