@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../../utils/services/news/api";
+
+import Loader from "../core/components/Loader.jsx"
+
 import useAppStore from "../../../utils/stores/AppStore.js"
 
 const PAGE_NUMBER = 1;
@@ -7,6 +10,7 @@ const PAGE_NUMBER = 1;
 export function AllNews() {
 
     const [news, setNews] = useState([]);
+    const [loading, setLoading] = useState();
 
     const [newsCategory, setNewsCategory] = useState('cryptocurrencies');
     const [newsSymbols, setNewsSymbols] = useState('all');
@@ -28,7 +32,7 @@ export function AllNews() {
                         setNews((prev) => {
                             return [...prev, ...response.data.data.result];
                         });
-                        // setLoading(false);
+                        setLoading(false);
                     }
                 });
         }
@@ -43,16 +47,12 @@ export function AllNews() {
             window.innerHeight + document.documentElement.scrollTop + 1 >=
             document.documentElement.scrollHeight
         ) {
-            // setLoading(true);
+            setLoading(true);
             setNewsPage((prev) => prev + 1);
             console.log(newsPage);
             getNews();
         }
     };
-
-
-
-
 
     const { setSidebarLink } = useAppStore((state) => ({
         setSidebarLink: state.setSidebarLink,
@@ -85,7 +85,7 @@ export function AllNews() {
                         </div>
 
                     ))}
-
+                    {loading && <Loader />}
 
                 </div>
                 <div className="w-[30%] border-l">

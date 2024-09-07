@@ -37,7 +37,7 @@ export function Sidebar() {
             </div>
             {/* menu icon */}
 
-            <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r-[1px] border-color-theme-light dark:border-D-color-theme-light px-6 pb-4">
+            <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r-[1px] -color-themeborder-light dark:border-D-color-theme-light px-6 pb-4">
 
                 <div className="flex flex-col h-20 shrink-0 items-end md:mt-4">
                     <img alt="Your Company" src={logo} className="h-[3.8rem] w-auto mx-auto"></img>
