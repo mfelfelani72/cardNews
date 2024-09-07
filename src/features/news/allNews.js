@@ -102,7 +102,7 @@ export function AllNews() {
                             {loading && <Loader />}
 
                         </div>
-                        <div className="w-[25%] border-l">
+                        <div className="w-[25%] ltr:border-l rtl:border-r">
                             <ViewNews new={viewNews} />
                         </div>
                     </div >

@@ -15,7 +15,7 @@ const CardRow = (props) => {
 
     return (
         <>
-            <div className="bg-slate-50 dark:bg-DB-dim px-3 pt-1 border-b border-color-theme-light dark:border-D-color-theme-light pb-2">
+            <div className="bg-slate-50 dark:bg-DB-dim px-3 pt-1 pb-2 border-b border-color-theme-light dark:border-D-color-theme-light">
                 <div className="px-2 pt-2 cursor-pointer text-T-dim dark:text-DT-title hover:text-color-theme dark:hover:text-D-color-theme">
                     <a onClick={() => { setViewNews(props.row); document.getElementById('viewNews').scrollTop = 0; }}>{props.row.title}</a>
                 </div>
@@ -24,7 +24,7 @@ const CardRow = (props) => {
                 <div className="px-1 pt-2 text-sm font-semibold">
                     <span className="px-1 text-T-bright/60 dark:text-DT-bright/60"> {props.row.category}</span>
                     <span className="px-1 text-T-bright/80 dark:text-DT-bright/80">
-                        <a className="cursor-pointer hover:text-color-theme dark:text-D-color-theme"
+                        <a className="cursor-pointer hover:text-color-theme dark:hover:text-D-color-theme"
                             href={props.row.link} target="blank">
                             {props.row.provider}</a>
                     </span>
