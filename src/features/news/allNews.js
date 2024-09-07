@@ -8,6 +8,7 @@ import useNewsStore from "../../../utils/stores/NewsStore.js"
 
 import Skeleton from "./Skeleton.js";
 import CardRow from "../core/components/CardRow.jsx";
+import ViewNews from "../core/components/ViewNews.jsx";
 
 const PAGE_NUMBER = 1;
 
@@ -84,7 +85,6 @@ export function AllNews() {
 
     }, [news, viewNews, newsPage]);
 
-    let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
 
     return (
         <>
@@ -103,24 +103,7 @@ export function AllNews() {
 
                         </div>
                         <div className="w-[25%] border-l">
-                            <div style={{ maxHeight: `calc(100% - 5rem)` }}
-                                className="fixed overflow-auto" id="test">
-                                <div className="">
-                                    <img className="h-[150px] w-[100%]" src={viewNews.thImage == " " ? defaultImage : viewNews.thImage} alt="" />
-                                </div>
-                                {viewNews?.summaryEn || viewNews?.summaryFa ?
-
-                                    <div className="p-3"><span className="text-color-theme text-sm font-semibold">LLM AI : </span>
-                                        {localStorage.getItem("currentLngId") === 'fa' ? viewNews?.summaryFa : viewNews?.summaryEn}
-                                    </div>
-
-                                    :
-
-                                    ""
-                                }
-
-                                <div className="p-3">{viewNews?.articleBody}</div>
-                            </div>
+                            <ViewNews new={viewNews} />
                         </div>
                     </div >
 
