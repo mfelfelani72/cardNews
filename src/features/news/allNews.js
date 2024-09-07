@@ -49,7 +49,6 @@ export function AllNews() {
                         });
 
                         setViewNews(response.data.data.result[0]);
-                        console.log(newsPage);
                         setNewsPage((prev) => prev + 1);
                         setLoading(false);
                     }
@@ -68,7 +67,8 @@ export function AllNews() {
         ) {
             setLoading(true);
             console.log(newsPage);
-            getNews();
+            if (newsPage !== 1)
+                getNews();
         }
     };
 
@@ -83,7 +83,7 @@ export function AllNews() {
 
         return () => window.removeEventListener("scroll", handleScroll);
 
-    }, [news, viewNews, newsPage]);
+    }, [news, newsPage]);
 
 
     return (
