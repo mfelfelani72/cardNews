@@ -108,7 +108,10 @@ export function AllNews() {
                                 <div className="">
                                     <img className="h-[150px] w-[100%]" src={viewNews.thImage == " " ? defaultImage : viewNews.thImage} alt="" />
                                 </div>
-                                <div className="p-3"><span className="text-color-theme text-sm font-semibold">LLM AI : </span> {viewNews?.summaryEn}</div>
+                                <div className="p-3"><span className="text-color-theme text-sm font-semibold">LLM AI : </span> 
+                                    {localStorage.getItem("currentLngId") === 'fa' ? viewNews?.summaryFa : viewNews?.summaryEn}
+                            
+                                </div>
                                 <div className="p-3">{viewNews?.articleBody}</div>
                             </div>
                         </div>
