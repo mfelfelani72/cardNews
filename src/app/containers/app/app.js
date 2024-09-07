@@ -15,7 +15,7 @@ import GuestRoutes from "../../routes/GuestRoutes";
 import { Header } from "../../../features/core/Header";
 import { Footer } from "../../../features/core/Footer";
 import { Sidebar } from "../../../features/core/Sidebar";
-import Loading from "../../../features/core/Loading.js";
+import SplashScreen from "../../../features/core/SplashScreen.js";
 
 // This will be our Task
 class Task {
@@ -110,7 +110,7 @@ const App = () => {
                     ?
                     // { first loading app
                     <div className="h-screen w-screen flex items-center justify-center px-16 bg-B-V-bright dark:bg-DB-bright">
-                        <Loading tasks={tasks} />
+                        <SplashScreen tasks={tasks} />
                     </div>
                     // first loading app }
                     :

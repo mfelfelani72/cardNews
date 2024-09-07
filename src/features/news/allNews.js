@@ -2,14 +2,57 @@ import React, { useEffect, useState } from "react";
 import axios from "../../../utils/services/news/api";
 import useAppStore from "../../../utils/stores/AppStore.js"
 
-
 const PAGE_NUMBER = 1;
-const ROW_KEY = 1;
 
 export function AllNews() {
 
-    const [page, setPage] = useState(PAGE_NUMBER);
     const [news, setNews] = useState([]);
+
+    const [newsCategory, setNewsCategory] = useState('cryptocurrencies');
+    const [newsSymbols, setNewsSymbols] = useState('all');
+    const [newsFrom, setNewsFrom] = useState('1716373411');
+    const [newsTo, setNewsTo] = useState('1725633001');
+    const [newsPageLimit, setNewsPageLimit] = useState(10);
+    const [newsPage, setNewsPage] = useState(PAGE_NUMBER);
+
+    const getNews = async () => {
+
+        try {
+            const result = await axios
+                .post(`http://localhost:8000/api/test2/`,
+                    `category=${newsCategory}&symbols=${newsSymbols}&from=${newsFrom}&to=${newsTo}&pageLimit=${newsPageLimit}&page=${newsPage}`
+                )
+                .then(response => {
+                    if (response.data.data.result) {
+                        console.log("Fetch data done.")
+                        setNews((prev) => {
+                            return [...prev, ...response.data.data.result];
+                        });
+                        // setLoading(false);
+                    }
+                });
+        }
+        catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    const handleScroll = async () => {
+        if (
+            window.innerHeight + document.documentElement.scrollTop + 1 >=
+            document.documentElement.scrollHeight
+        ) {
+            // setLoading(true);
+            setNewsPage((prev) => prev + 1);
+            console.log(newsPage);
+            getNews();
+        }
+    };
+
+
+
+
 
     const { setSidebarLink } = useAppStore((state) => ({
         setSidebarLink: state.setSidebarLink,
@@ -19,41 +62,15 @@ export function AllNews() {
 
         setSidebarLink("news");
 
-
-        setTimeout(async () => {
-            const result = await axios.post(
-                `http://localhost:8000/api/test2/`, 'category=cryptocurrencies&symbols=all&from=1716373411&to=1725633001&pageLimit=10&page=2'
-            ).then(response => {
-                if (response.data.data.result) {
-                    console.log("Fetch data done.")
-                    setNews((prev) => {
-                        return [...prev, ...response.data.data.result];
-                    });
-                    // setLoading(false);
-                }
-            });
-
-        }, 1500);
-
-
-    }, [page]);
-
-    useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
-    const handleScroll = async () => {
-        if (
-            window.innerHeight + document.documentElement.scrollTop + 1 >=
-            document.documentElement.scrollHeight
-        ) {
-            // setLoading(true);
-            setPage((prev) => prev + 1);
-        }
-    };
+    }, [news]);
 
+    // useEffect(() => {
+
+    // }, [newsPage]);
 
     return (
 
@@ -61,44 +78,19 @@ export function AllNews() {
             <div className="flex flex-row">
                 <div className="w-[70%]">
 
-                    {news.map((row) => (
+                    {news.map((row, index) => (
 
-                        <React.Fragment key={row.aimoonhub_id}>
+                        <div className="border-b" key={index}>
+                            <div className="p-4">{row.title}</div>
+                        </div>
 
-                            <div className="border-b">
-                                <div className="p-4">{row.title}</div>
-                            </div>
-
-                        </React.Fragment>
                     ))}
 
 
                 </div>
                 <div className="w-[30%] border-l">
                     <div className="fixed">
-                        <div className="">start</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">sadsa</div>
-                        <div className="">end</div>
+                        <div className="">{news[0]?.title}</div>
                     </div>
                 </div>
             </div>

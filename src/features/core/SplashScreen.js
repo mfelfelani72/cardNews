@@ -5,7 +5,7 @@ import useAppStore from "../../../utils/stores/AppStore.js";
 
 import logo from "../../../assets/images/logo.png";
 
-export default function Loading({ tasks }) {
+export default function SplashScreen({ tasks }) {
 
 
     const [progression, setProgression] = useState(0);
