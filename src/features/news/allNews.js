@@ -4,14 +4,25 @@ import axios from "../../../utils/services/news/api";
 import Loader from "../core/components/Loader.jsx"
 
 import useAppStore from "../../../utils/stores/AppStore.js"
+import useNewsStore from "../../../utils/stores/NewsStore.js"
+
 import Skeleton from "./Skeleton.js";
+import CardRow from "../core/components/CardRow.jsx";
 
 const PAGE_NUMBER = 1;
 
 export function AllNews() {
 
+    const { setSidebarLink } = useAppStore((state) => ({
+        setSidebarLink: state.setSidebarLink,
+    }))
+
+    const { viewNews, setViewNews } = useNewsStore((state) => ({
+        viewNews: state.viewNews,
+        setViewNews: state.setViewNews,
+    }))
+
     const [news, setNews] = useState([]);
-    const [viewNews, setViewNews] = useState();
     const [loading, setLoading] = useState();
 
     const [newsCategory, setNewsCategory] = useState('cryptocurrencies');
@@ -35,15 +46,9 @@ export function AllNews() {
                         setNews((prev) => {
                             return [...prev, ...response.data.data.result];
                         });
-                        // setViewNews((prev) => {
-                        //     return [...prev, ...response.data.data.result];
-                        // });
-
 
                         setViewNews(response.data.data.result[0]);
-
                         setNewsPage((prev) => prev + 1);
-                        console.log(newsPage);
                         setLoading(false);
                     }
                 });
@@ -64,10 +69,6 @@ export function AllNews() {
             getNews();
         }
     };
-
-    const { setSidebarLink } = useAppStore((state) => ({
-        setSidebarLink: state.setSidebarLink,
-    }))
 
     useEffect(() => {
 
@@ -93,11 +94,7 @@ export function AllNews() {
 
                             {news.map((row, index) => (
 
-                                <div className="border-b" key={index}>
-                                    <div className="p-4" onClick={() => { setViewNews(row); }} >
-                                        {row.title}
-                                    </div>
-                                </div>
+                                <CardRow row={row} key={index} />
 
                             ))}
                             {loading && <Loader />}
