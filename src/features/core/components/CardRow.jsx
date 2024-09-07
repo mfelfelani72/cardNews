@@ -13,12 +13,11 @@ const CardRow = (props) => {
         setViewNews: state.setViewNews,
     }))
 
-    let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
     return (
         <>
-            <div className="bg-slate-50 dark:bg-DB-dim px-3 pt-1 border-b border-color-theme-light dark:border-D-color-theme-light">
+            <div className="bg-slate-50 dark:bg-DB-dim px-3 pt-1 border-b border-color-theme-light dark:border-D-color-theme-light pb-2">
                 <div className="px-2 pt-2 cursor-pointer text-T-dim dark:text-DT-title hover:text-color-theme dark:hover:text-D-color-theme">
-                    <a onClick={() => { setViewNews(props.row); }}>{props.row.title}</a>
+                    <a onClick={() => { setViewNews(props.row); document.getElementById('test').scrollTop = 0; }}>{props.row.title}</a>
                 </div>
                 <div className="px-2 text-sm">{stringHelper(props.row.articleBody, 30)}</div>
 
@@ -34,11 +33,13 @@ const CardRow = (props) => {
                         <span className="px-3 text-sm"> {dateHelper(props.row.pubDate)}</span>
                     </div>
                 </div>
-
-                <div className="flex justify-end items-center px-1 font-bold text-[0.75rem]">
-                    <span className="" >Analyzed by LLM AI</span>
-                    <span className="px-1 pb-2" ><img src={logo} className="h-4 w-5" /></span>
-                </div>
+                {props.row?.summaryEn || props.row?.summaryFa ?
+                    <div className="flex justify-end items-center px-1 font-bold text-[0.75rem]">
+                        <span className="" >Analyzed by LLM AI</span>
+                        <span className="px-1 pb-2" ><img src={logo} className="h-4 w-5" /></span>
+                    </div>
+                    : ""
+                }
             </div>
         </>
     );
