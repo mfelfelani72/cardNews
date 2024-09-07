@@ -11,6 +11,7 @@ const PAGE_NUMBER = 1;
 export function AllNews() {
 
     const [news, setNews] = useState([]);
+    const [viewNews, setViewNews] = useState();
     const [loading, setLoading] = useState();
 
     const [newsCategory, setNewsCategory] = useState('cryptocurrencies');
@@ -29,11 +30,20 @@ export function AllNews() {
                 )
                 .then(response => {
                     if (response.data.data.result) {
+
                         console.log("Fetch data done.")
                         setNews((prev) => {
                             return [...prev, ...response.data.data.result];
                         });
+                        // setViewNews((prev) => {
+                        //     return [...prev, ...response.data.data.result];
+                        // });
+
+
+                        setViewNews(response.data.data.result[0]);
+
                         setNewsPage((prev) => prev + 1);
+                        console.log(newsPage);
                         setLoading(false);
                     }
                 });
@@ -70,7 +80,8 @@ export function AllNews() {
 
         return () => window.removeEventListener("scroll", handleScroll);
 
-    }, [news, newsPage]);
+    }, [news, viewNews, newsPage]);
+
 
     return (
         <>
@@ -83,7 +94,9 @@ export function AllNews() {
                             {news.map((row, index) => (
 
                                 <div className="border-b" key={index}>
-                                    <div className="p-4">{row.title}</div>
+                                    <div className="p-4" onClick={() => { setViewNews(row); }} >
+                                        {row.title}
+                                    </div>
                                 </div>
 
                             ))}
@@ -92,7 +105,7 @@ export function AllNews() {
                         </div>
                         <div className="w-[30%] border-l">
                             <div className="fixed">
-                                <div className="">{news[0]?.title}</div>
+                                <div className="">{viewNews?.title}</div>
                             </div>
                         </div>
                     </div >
