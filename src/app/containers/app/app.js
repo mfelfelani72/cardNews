@@ -13,8 +13,8 @@ import "../../styles/app/app.css";
 
 import GuestRoutes from "../../routes/GuestRoutes";
 import { Header } from "../../../features/core/Header";
-import { Footer } from "../../../features/core/Footer";
 import { Sidebar } from "../../../features/core/Sidebar";
+import Page404 from "../../../features/core/components/Page404.jsx"
 import SplashScreen from "../../../features/core/SplashScreen.js";
 
 // This will be our Task
@@ -155,7 +155,8 @@ const App = () => {
     // { page 404
     else
         return (
-            <h6>page 404</h6>
+            
+            <Page404 />
         );
     // page 404 }
 

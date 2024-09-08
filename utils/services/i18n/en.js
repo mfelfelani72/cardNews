@@ -30,6 +30,14 @@ const en = {
 
 
   // footer
+
+  // 404
+
+  'pnf': 'Page not found',
+  'sorry': 'Sorry, we couldn’t find the page you’re looking for.',
+  'goHome': 'Go back home',
+
+  // 404
 };
 
 export default en;
