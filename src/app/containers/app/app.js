@@ -73,6 +73,7 @@ const App = () => {
         // initial language }
 
         // { initial theme mode (dark or light)
+
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ||
             localStorage.getItem("theme") === 'dark') {
             document.documentElement.classList.add("dark");
@@ -80,10 +81,13 @@ const App = () => {
         else {
             document.documentElement.classList.remove("dark");
         }
+
         // initial theme mode }
 
         // { call function to calculate scroll
+
         window.addEventListener('scroll', updateScrollCompletion);
+
         // call function to calculate scroll }
 
 
@@ -109,22 +113,26 @@ const App = () => {
                 {loading
                     ?
                     // { first loading app
+
                     <div className="h-screen w-screen flex items-center justify-center px-16 bg-B-V-bright dark:bg-DB-bright">
                         <SplashScreen tasks={tasks} />
                     </div>
+
                     // first loading app }
                     :
                     // { load app for guest users
+
                     <>
                         <Header />
 
                         <Sidebar />
+
                         <div className="ltr:md:ml-[12rem] rtl:md:mr-[12rem] mt-20 bg-B-V-bright dark:bg-DB-dim h-screen">
                             <GuestRoutes />
                         </div>
 
-                        
                     </>
+                    
                     // load app for guest users }
                 }
             </div>

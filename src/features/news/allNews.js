@@ -33,6 +33,10 @@ export function AllNews() {
     const [newsPageLimit, setNewsPageLimit] = useState(10);
     const [newsPage, setNewsPage] = useState(PAGE_NUMBER);
 
+    const headers = {
+        'Authorization': '92223bf504efcfd0e6e000ba1f4d53f4'
+    }
+
     const getNews = async () => {
 
         try {
