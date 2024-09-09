@@ -46,7 +46,7 @@ const CardRow = (props) => {
 
                 <div className="lg:hidden">
                     <div className={active ? "block" : "hidden"}>
-                        <div className="w-[96%] p-1 m-2 mt-2 bg-slate-50">
+                        <div className="w-[96%] p-1 m-2 mt-2 bg-slate-50 dark:bg-DB-bright">
 
 
                             <img className="float-left h-36 w-48 pt-4 px-3 pb-1" src={props.row?.thImage == " " ? defaultImage : props.row?.thImage} alt="" />
@@ -67,7 +67,7 @@ const CardRow = (props) => {
 
                             <div className="text-right p-4 ">
                                 <Botton
-                                    href={props.new?.link}
+                                    href={props.row?.link}
                                     target="_blank"
                                     className="bg-color-theme/70 hover:bg-color-theme dark:bg-D-color-theme/70 dark:hover:bg-D-color-theme">
                                     Read more
