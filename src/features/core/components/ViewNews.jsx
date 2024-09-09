@@ -11,7 +11,7 @@ const ViewNews = (props) => {
     return (
         <>
             <div style={{ maxHeight: `calc(100% - 5rem)` }}
-                className="fixed overflow-auto" id="viewNews">
+                className="fixed overflow-auto text-center text-sm" id="viewNews">
                 <div className="">
                     <img className="h-[150px] w-[100%]" src={props.new.thImage == " " ? defaultImage : props.new.thImage} alt="" />
                 </div>

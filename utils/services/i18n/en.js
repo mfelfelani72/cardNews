@@ -34,7 +34,7 @@ const en = {
   // 404
 
   'pnf': 'Page not found',
-  'sorry': 'Sorry, we couldn’t find the page you’re looking for.',
+  'sorry': 'Sorry, we couldn’t find the page you’re looking for',
   'goHome': 'Go back home',
 
   // 404

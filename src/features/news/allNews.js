@@ -96,7 +96,7 @@ export function AllNews() {
                 news.length != 0 ?
 
                     <div className="flex flex-row bg-B-V-bright dark:bg-DB-dim text-T-bright dark:text-DT-bright" >
-                        <div className="w-[73%]">
+                        <div className="w-full lg:w-[73%] 2xl:w-[80%]">
 
                             {news.map((row, index) => (
 
@@ -106,7 +106,7 @@ export function AllNews() {
                             {loading && <Loader />}
 
                         </div>
-                        <div className="w-[25%] ltr:border-l rtl:border-r">
+                        <div className="hidden w-[25%] lg:block 2xl:w-[20%] ltr:border-l rtl:border-r">
                             <ViewNews new={viewNews} />
                         </div>
                     </div>
