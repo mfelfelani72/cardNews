@@ -1,7 +1,5 @@
 import React from "react";
 
-import useNewsStore from "../../../../utils/stores/NewsStore.js"
-
 import Botton from "../../core/components/Button.jsx"
 
 const ViewNews = (props) => {
