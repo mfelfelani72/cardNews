@@ -5,7 +5,7 @@ const Skeleton = () => {
 
         <div className="flex flex-row bg-B-V-bright dark:bg-DB-dim text-T-bright dark:text-DT-bright">
 
-            <div className="w-[75%]">
+            <div className="w-[99%] lg:w-[73%] 2xl:w-[80%]">
 
                 <div className="px-3 pt-1 pb-3 border-b border-color-theme-light dark:border-D-color-theme-light">
                     <div className="skeleton h-3 w-[75%] my-5"></div>
@@ -190,9 +190,9 @@ const Skeleton = () => {
 
             </div>
 
-            <div className="w-[25%] ltr:border-l rtl:border-r">
-                <div className='fixed w-[18rem]'>
-                    <div className='skeleton h-[10rem] w-full rounded-none'></div>
+            <div className="hidden lg:block ltr:border-l rtl:border-r">
+                <div className='fixed w-[22%] xl:w-[24%] 2xl:w-[18%]'>
+                    <div className='skeleton h-[9rem] w-full rounded-none'></div>
                     <div className='skeleton h-2 mt-5 w-[80%] mx-2'></div>
                     <div className='skeleton h-2 mt-4 w-[83%] mx-2'></div>
                     <div className='skeleton h-2 mt-4 w-[86%] mx-2'></div>

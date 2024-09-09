@@ -27,7 +27,7 @@ const ViewNews = (props) => {
                 }
 
                 <div className="p-3">{props.new?.articleBody}</div>
-                <div className="text-right p-4">
+                <div className="text-right p-4 ">
                     <Botton
                         href={props.new?.link}
                         target="_blank"
