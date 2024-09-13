@@ -25,7 +25,7 @@ const useAppStore = create((set) => ({
 
     //    Loading
 
-    loading: false,
+    loading: true,
     setLoading: (loading) => set({ loading: loading }),
 
     //    Loading

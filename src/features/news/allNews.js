@@ -26,10 +26,10 @@ export function AllNews() {
     const [news, setNews] = useState([]);
     const [loading, setLoading] = useState();
 
-    const [newsCategory, setNewsCategory] = useState('cryptocurrencies');
-    const [newsSymbols, setNewsSymbols] = useState('all');
-    const [newsFrom, setNewsFrom] = useState('1716373411');
-    const [newsTo, setNewsTo] = useState('1725633001');
+    const [newsCategory, setNewsCategory] = useState("cryptocurrencies");
+    const [newsSymbols, setNewsSymbols] = useState("all");
+    const [newsFrom, setNewsFrom] = useState("1716373411");
+    const [newsTo, setNewsTo] = useState("1725633001");
     const [newsPageLimit, setNewsPageLimit] = useState(10);
     const [newsPage, setNewsPage] = useState(PAGE_NUMBER);
 
@@ -37,16 +37,28 @@ export function AllNews() {
         'Authorization': '92223bf504efcfd0e6e000ba1f4d53f4'
     }
 
+    const data = {
+        "category": newsCategory,
+        "symbols": newsSymbols,
+        "startDate": newsFrom,
+        // "endDate": newsTo,
+        "page": newsPage,
+        "pageLimit": newsPageLimit
+    }
+
     const getNews = async () => {
 
         try {
             const result = await axios
-                .post(`http://localhost:8000/api/test2/`,
-                    `category=${newsCategory}&symbols=${newsSymbols}&from=${newsFrom}&to=${newsTo}&pageLimit=${newsPageLimit}&page=${newsPage}`
+                .post(`/News/GetPaginatedData/`,
+                    // .post(`/test2`,
+                    // `category=${newsCategory}&symbols=${newsSymbols}&from=${newsFrom}&to=${newsTo}&pageLimit=${newsPageLimit}&page=${newsPage}`
+                    data
                 )
                 .then(response => {
+                    
                     if (response.data.data.result) {
-
+                        
                         console.log("Fetch data done.")
                         setNews((prev) => {
                             return [...prev, ...response.data.data.result];

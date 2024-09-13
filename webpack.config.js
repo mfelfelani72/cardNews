@@ -21,7 +21,7 @@ module.exports = {
   //   sub: "./src/components/app.js",
   // },
 
-  stats: {warnings:false} , 
+  stats: { warnings: false },
   output: {
     //filename: "bundle.js",
     filename: "[name].[contenthash].js",
@@ -30,20 +30,20 @@ module.exports = {
   },
 
 
-    devtool:false,
-    parallelism:4 ,
+  devtool: false,
+  parallelism: 4,
 
 
 
   performance: {
     // hints: "warning",
-    maxEntrypointSize:512000 ,
-    maxAssetSize:512000,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
     // assetFilter: function (assetFilename) {
     //   return assetFilename.endsWith(".js");
     // },
   },
- // stats: "verbose",
+  // stats: "verbose",
   optimization: {
     minimize: true,
 
@@ -56,8 +56,8 @@ module.exports = {
     realContentHash: true,
     splitChunks: {
       chunks: "all",
-    minSize:10000  ,
-        maxSize:250000
+      minSize: 10000,
+      maxSize: 250000
     },
     usedExports: true,
     removeAvailableModules: true,
@@ -71,7 +71,7 @@ module.exports = {
     },
 
     historyApiFallback: true,//mohammad
-    
+
     port: process.env.PORT,
     //... other options ...
   },

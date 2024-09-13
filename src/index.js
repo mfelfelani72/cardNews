@@ -12,7 +12,7 @@ import '../styles/style.css'
 
 createRoot(document.getElementById('root')).render(
 
-       <BrowserRouter>
+       <BrowserRouter basename="/">
               <App />
        </BrowserRouter>
 );
