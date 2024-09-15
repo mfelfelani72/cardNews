@@ -117,7 +117,7 @@ export function Sidebar() {
                                 </a>
 
                             </div>
-
+                            
                         </li>
                         {/* social media */}
 
@@ -126,7 +126,7 @@ export function Sidebar() {
                 </nav>
 
             </div>
-
+            <Footer />
         </div>
     );
 }

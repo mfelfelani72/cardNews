@@ -23,12 +23,12 @@ function configureLang(id, dir) {
 
 const useAppStore = create((set) => ({
 
-    //    Loading
+    //    splashScreen
 
-    loading: true,
-    setLoading: (loading) => set({ loading: loading }),
+    splashScreen: false,
+    setSplashScreen: (splashScreen) => set({ splashScreen: splashScreen }),
 
-    //    Loading
+    //    splashScreen
 
     //    sidebar 
 

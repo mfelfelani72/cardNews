@@ -33,11 +33,21 @@ const en = {
 
   // 404
 
-  'pnf': 'Page not found',
-  'sorry': 'Sorry, we couldn’t find the page you’re looking for',
-  'goHome': 'Go back home',
+  pnf: 'Page not found',
+  sorry: 'Sorry, we couldn’t find the page you’re looking for',
+  goHome: 'Go back home',
 
   // 404
+
+  // CardRow
+
+  author: "Ahthor",
+  provider: "Provider",
+  newScore: "News score",
+  relatedPair: "Related pair",
+  aimoonHub: "AimoonHub",
+
+  // CardRow
 };
 
 export default en;

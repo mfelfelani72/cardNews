@@ -16,6 +16,7 @@ import { Header } from "../../../features/core/Header";
 import { Sidebar } from "../../../features/core/Sidebar";
 import Page404 from "../../../features/core/components/Page404.jsx"
 import SplashScreen from "../../../features/core/SplashScreen.js";
+import { Footer } from "../../../features/core/Footer.js";
 
 // This will be our Task
 class Task {
@@ -28,10 +29,10 @@ class Task {
 const App = () => {
 
     // { load Global States from zustand
-    const { loading, setProgressBar } = useAppStore((state) => ({
+    const { splashScreen, setProgressBar } = useAppStore((state) => ({
         progressBar: state.progressBar,
         setProgressBar: state.setProgressBar,
-        loading: state.loading,
+        splashScreen: state.splashScreen,
     }))
     // load Global States from zustand }
 
@@ -46,7 +47,7 @@ const App = () => {
     }
     // for calculate scroll page }
 
-    // { task for loading
+    // { task for splashScreen
     const tasks = [
         new Task({
             action: () => new Promise(resolve => setTimeout(resolve, 2000)),
@@ -56,7 +57,7 @@ const App = () => {
         }),
 
     ];
-    // task for loading }
+    // task for splashScreen }
 
     useEffect(() => {
 
@@ -110,29 +111,35 @@ const App = () => {
 
         return (
             <div className="font-main">
-                {loading
+                {splashScreen
                     ?
-                    // { first loading app
+                    // { first splashScreen app
 
                     <div className="h-screen w-screen flex items-center justify-center px-16 bg-B-V-bright dark:bg-DB-bright">
                         <SplashScreen tasks={tasks} />
                     </div>
 
-                    // first loading app }
+                    // first splashScreen app }
                     :
                     // { load app for guest users
 
                     <>
                         <Header />
-
+                        
                         <Sidebar />
 
                         <div className="ltr:md:ml-[12rem] rtl:md:mr-[12rem] mt-20 bg-B-V-bright dark:bg-DB-dim h-screen">
+
                             <GuestRoutes />
+
+                            <Footer />
+                            
                         </div>
 
+                        
+
                     </>
-                    
+
                     // load app for guest users }
                 }
             </div>
@@ -155,7 +162,7 @@ const App = () => {
     // { page 404
     else
         return (
-            
+
             <Page404 />
         );
     // page 404 }

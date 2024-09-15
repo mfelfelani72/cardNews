@@ -4,10 +4,11 @@ import axios from "../../../utils/services/news/api";
 import Loader from "../core/components/Loader.jsx"
 
 import useAppStore from "../../../utils/stores/AppStore.js"
-
+import useNewsStore from "../../../utils/stores/NewsStore.js"
 
 import Skeleton from "./Skeleton.js";
 import CardRow from "../core/components/CardRow.jsx";
+import ViewNews from "../core/components/ViewNews.jsx";
 
 const PAGE_NUMBER = 1;
 
@@ -15,6 +16,11 @@ export function AllNews() {
 
     const { setSidebarLink } = useAppStore((state) => ({
         setSidebarLink: state.setSidebarLink,
+    }))
+
+    const { viewNews, setViewNews } = useNewsStore((state) => ({
+        viewNews: state.viewNews,
+        setViewNews: state.setViewNews,
     }))
 
     const [news, setNews] = useState([]);
@@ -49,6 +55,8 @@ export function AllNews() {
                         setNews((prev) => {
                             return [...prev, ...response.data.data.result];
                         });
+
+                        setViewNews(response.data.data.result[0]);
                         setNewsPage((prev) => prev + 1);
                         setLoading(false);
                     }
@@ -60,12 +68,28 @@ export function AllNews() {
 
     }
 
+    const handleScroll = async () => {
+        if (
+            window.innerHeight + document.documentElement.scrollTop + 1 >=
+            document.documentElement.scrollHeight
+        ) {
+            setLoading(true);
+            console.log(newsPage);
+            if (newsPage !== 1)
+                getNews();
+        }
+    };
+
     useEffect(() => {
 
         if (news.length == 0)
             getNews();
 
         setSidebarLink("news");
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
 
     }, [news, newsPage]);
 
@@ -76,7 +100,7 @@ export function AllNews() {
                 news.length != 0 ?
 
                     <div className="flex flex-row bg-B-V-bright dark:bg-DB-dim text-T-bright dark:text-DT-bright" >
-                        <div className="w-full">
+                        <div className="w-full lg:w-[73%] 2xl:w-[80%]">
 
                             {news.map((row, index) => (
 
@@ -85,9 +109,10 @@ export function AllNews() {
                             ))}
                             {loading && <Loader />}
 
-
                         </div>
-
+                        <div className="hidden w-[25%] lg:block 2xl:w-[20%] ltr:border-l rtl:border-r">
+                            <ViewNews new={viewNews} />
+                        </div>
                     </div>
 
                     :

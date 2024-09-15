@@ -9,8 +9,8 @@ export default function SplashScreen({ tasks }) {
 
 
     const [progression, setProgression] = useState(0);
-    const { setLoading } = useAppStore((state) => ({
-        setLoading: state.setLoading,
+    const { setSplashScreen } = useAppStore((state) => ({
+        setSplashScreen: state.setSplashScreen,
     }))
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export default function SplashScreen({ tasks }) {
                 await tasks[i].action();
                 setProgression(i + 2);
             }
-            setTimeout(setLoading(false), 10000);
+            setTimeout(setSplashScreen(false), 10000);
         })();
     }, [progression]);
 
