@@ -17,13 +17,13 @@ const CardRow = (props) => {
         setPercentNewScore(Math.max(props.row.Negative, props.row.Neutral, props.row.Positive));
 
         if (Math.max(props.row.Negative, props.row.Neutral, props.row.Positive) === props.row.Negative)
-            setClassNameNewScore("bg-rose-600");
+            setClassNameNewScore("bg-rose-600 dark:bg-rose-600");
 
         else if (Math.max(props.row.Negative, props.row.Neutral, props.row.Positive) === props.row.Neutral)
-            setClassNameNewScore("bg-slate-800");
+            setClassNameNewScore("bg-slate-800 dark:bg-slate-800");
 
         else
-            setClassNameNewScore("bg-lime-500");
+            setClassNameNewScore("bg-lime-500 dark:bg-lime-500");
 
     }
 
