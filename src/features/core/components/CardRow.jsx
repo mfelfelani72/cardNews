@@ -98,7 +98,7 @@ const CardRow = (props) => {
 
             {props.row?.summaryEn || props.row?.summaryFa ?
                 <div className="flex justify-end items-center px-1 font-bold text-[0.75rem]">
-                    <span className="" >{t('aimoonHub')}</span>
+                    <span className="px-2" >{t('aimoonHub')}</span>
                     <span className="pb-2" ><img src={logo} className="h-4 w-5" /></span>
                 </div>
                 : ""
