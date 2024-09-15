@@ -11,7 +11,11 @@ export function dateHelper(stampDate, type = "AD-date") {
         location = "fa-IR";
 
     // for type of date 
+    var date = new Date(stampDate * 1000);
+    var date2 = (new Date() - date) * 1000;
+    console.log(date2.toLocaleString());
 
-    result = new Intl.DateTimeFormat(location, { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(stampDate)
+    result = date.toLocaleString(location, { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
+
     return result;
 } 
