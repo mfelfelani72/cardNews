@@ -41,10 +41,10 @@ const en = {
 
   // CardRow
 
-  author: "Ahthor",
+  author: "Author",
   provider: "Provider",
   newScore: "News score",
-  relatedPair: "Related pair",
+  relatedPair: "Related pairs",
   aimoonHub: "AimoonHub",
 
   // CardRow

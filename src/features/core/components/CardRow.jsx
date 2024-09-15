@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { dateHelper } from "../../../../utils/helpers/dateHelper.js";
 import { stringHelper } from "../../../../utils/helpers/stringHelper.js";
 import { useTranslation } from "react-i18next";
@@ -9,8 +9,32 @@ import ProgressBar from "./ProgressBar.jsx";
 
 const CardRow = (props) => {
 
+    const [percentNewScore, setPercentNewScore] = useState();
+    const [classNameNewScore, setClassNameNewScore] = useState();
+
+    const setDetailsProgressBar = () => {
+
+        setPercentNewScore(Math.max(props.row.Negative, props.row.Neutral, props.row.Positive));
+
+        if (Math.max(props.row.Negative, props.row.Neutral, props.row.Positive) === props.row.Negative)
+            setClassNameNewScore("bg-rose-600");
+
+        else if (Math.max(props.row.Negative, props.row.Neutral, props.row.Positive) === props.row.Neutral)
+            setClassNameNewScore("bg-slate-800");
+
+        else
+            setClassNameNewScore("bg-lime-500");
+
+    }
+
     const { t } = useTranslation();
     let defaultImage = "https://flowbite.com/docs/images/blog/image-1.jpg";
+
+    useEffect(() => {
+
+        setDetailsProgressBar();
+
+    }, [percentNewScore, classNameNewScore]);
 
     return (
         <div className="flex flex-col px-3 pt-1 pb-2 border-b border-color-theme-light dark:border-D-color-theme-light">
@@ -19,14 +43,16 @@ const CardRow = (props) => {
                 <img className="float-left h-36 w-48 pt-2 ltr:pr-2 rtl:px-3 pb-1" src={props.row?.thImage == " " ? defaultImage : props.row?.thImage} alt="" />
 
                 <div className="rtl:ltr px-2 pt-2 text-T-dim dark:text-DT-title hover:text-color-theme dark:hover:text-D-color-theme">
-                    <a className="text-color-theme">{props.row.title}</a>
+                    <a href={props.row.link} target="_blank" className="text-color-theme">{props.row.title}</a>
                 </div>
                 <div className="rtl:ltr px-2 pt-2 text-sm justify-end">{props.row.articleBody == " " ? "" : stringHelper(props.row.articleBody, 30)}</div>
             </div>
 
             <div className="">
                 <div className="rtl:ltr rtl:ml-3 pt-2 text-sm font-semibold">
-                    <span className="text-sm"> {dateHelper(props.row.pubDate)}</span>
+                    <span className="text-sm"> 
+                        {localStorage.getItem("currentLngId") === 'fa' ? dateHelper(props.row.pubDate,"SH-date") : dateHelper(props.row.pubDate)}
+                        </span>
                 </div>
 
                 <div className="flex flex-col pt-4">
@@ -41,7 +67,8 @@ const CardRow = (props) => {
                     {props.row.importanceScore ?
                         <div className="flex flex-row items-center">
                             <div className="text-sm">{t('newScore')}</div>
-                            <div className="w-28 mx-3"><ProgressBar percentage={props.row.importanceScore * 100} /></div>
+
+                            <div className="w-28 mx-3"><ProgressBar className={classNameNewScore} percentage={percentNewScore * 100} /></div>
                         </div>
                         :
                         ""

@@ -5,9 +5,9 @@ import Loader from "../core/components/Loader.jsx"
 
 import useAppStore from "../../../utils/stores/AppStore.js"
 
-
 import Skeleton from "./Skeleton.js";
 import CardRow from "../core/components/CardRow.jsx";
+
 
 const PAGE_NUMBER = 1;
 
@@ -60,12 +60,28 @@ export function AllNews() {
 
     }
 
+    const handleScroll = async () => {
+        if (
+            window.innerHeight + document.documentElement.scrollTop + 1 >=
+            document.documentElement.scrollHeight
+        ) {
+            setLoading(true);
+            console.log(newsPage);
+            if (newsPage !== 1)
+                getNews();
+        }
+    };
+
     useEffect(() => {
 
         if (news.length == 0)
             getNews();
 
         setSidebarLink("news");
+        
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
 
     }, [news, newsPage]);
 
@@ -85,9 +101,8 @@ export function AllNews() {
                             ))}
                             {loading && <Loader />}
 
-
                         </div>
-
+                    
                     </div>
 
                     :
