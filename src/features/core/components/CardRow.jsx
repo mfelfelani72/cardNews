@@ -37,7 +37,7 @@ const CardRow = (props) => {
     }, [percentNewScore, classNameNewScore]);
 
     return (
-        <div className="flex flex-col px-3 pt-1 pb-2 border-b border-color-theme-light dark:border-D-color-theme-light">
+        <div className="flex flex-col px-3 pt-1 pb-2 border-b bg-slate-50 dark:bg-DB-dim border-color-theme-light dark:border-D-color-theme-light">
 
             <div>
                 <img className="float-left h-36 w-48 pt-2 ltr:pr-2 rtl:px-3 pb-1" src={props.row?.thImage == " " ? defaultImage : props.row?.thImage} alt="" />
