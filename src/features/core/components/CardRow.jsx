@@ -59,12 +59,12 @@ const CardRow = (props) => {
                     <div className="flex flex-row pb-1">
                         <span className="text-sm">{t('author')}</span>
                         <span className="px-3 text-sm font-bold"> {props.row.author}</span>
-                        <span className="text-sm font-bold"> {"( " + props.row.author_info['last_week_count'] + " | " + props.row.author_info['last_day_count'] + " )"}</span>
+                        <span className="text-sm font-bold"> {"( " + props.row.author_info['last_week_count'] + " | " + props.row.author_info['AvgNewsPERweek'] + " )"}</span>
                     </div>
                     <div className="flex flex-row pb-1">
                         <span className="text-sm">{t('provider')}</span>
                         <span className="px-3 text-sm font-bold"> {props.row.provider}</span>
-                        <span className="text-sm font-bold"> {"( " + props.row.provider_info['last_week_count'] + " | " + props.row.provider_info['last_day_count'] + " )"}</span>
+                        <span className="text-sm font-bold"> {"( " + props.row.provider_info['last_week_count'] + " | " + props.row.provider_info['AvgNewsPERweek'] + " )"}</span>
                     </div>
                     <div className="flex flex-row pb-1">
                         <span className="text-sm">{t('category')}</span>
