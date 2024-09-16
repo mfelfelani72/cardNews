@@ -4,6 +4,7 @@
 
 */
 import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import useAppStore from "../../../../utils/stores/AppStore.js";
@@ -154,8 +155,10 @@ const App = () => {
     // { page 404
     else
         return (
+            <Routes>
+                <Route path="*" element={<Page404 />}></Route>
+            </Routes>
 
-            <Page404 />
         );
     // page 404 }
 

@@ -25,7 +25,7 @@ const useAppStore = create((set) => ({
 
     //    splashScreen
 
-    splashScreen: false,
+    splashScreen: true,
     setSplashScreen: (splashScreen) => set({ splashScreen: splashScreen }),
 
     //    splashScreen

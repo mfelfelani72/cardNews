@@ -11,7 +11,7 @@ const GuestRoutes = () => {
 
         if (localStorage.getItem("theme") == 'dark')
             document.documentElement.classList.add("dark");
-        
+
         // initial dark mode
 
     }, [])
@@ -22,7 +22,6 @@ const GuestRoutes = () => {
         <Routes>
             <Route path="/" element={<AllNews />}></Route>
             <Route path="/news" element={<AllNews />}></Route>
-            {/* <Route path="*" element={<AllNews />}></Route>  404 */}
         </Routes>
 
     )
