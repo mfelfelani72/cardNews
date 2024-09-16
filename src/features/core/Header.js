@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+
+import { NavLink } from 'react-router-dom';
 
 import { IoMenu, IoMoon, IoSunny } from "react-icons/io5";
 import useAppStore from "../../app/stores/AppStore.js";
@@ -7,13 +8,13 @@ import Languages from "./components/Languages.jsx";
 import { useTranslation } from "react-i18next";
 
 function handleSwitchTheme() {
-    
+
     if (document.documentElement.classList.value)
         localStorage.setItem("theme", "");
     else
         localStorage.setItem("theme", "dark");
 
-    
+
     document.documentElement.classList.toggle("dark");
 
 }
@@ -72,14 +73,14 @@ export function Header(...props) {
                             {/* login - register */}
                             <ul className="flex items-center space-x-1 text-sm ">
                                 <li>
-                                    <a className="text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme px-2" href="/login">
+                                    <NavLink className="text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme px-2" to="/login">
                                         {t('login')}
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li>
-                                    <a className="text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme px-2" href="/register">
+                                    <NavLink className="text-DT-bright hover:text-color-theme dark:hover:text-D-color-theme px-2" to="/register">
                                         {t('register')}
-                                    </a>
+                                    </NavLink>
                                 </li>
                             </ul>
                             {/* login - register */}

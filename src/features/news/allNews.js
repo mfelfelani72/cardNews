@@ -81,7 +81,7 @@ const AllNews = () => {
 
         window.addEventListener("scroll", handleScroll);
 
-        console.log(news);
+        // console.log(news);
 
         return () => window.removeEventListener("scroll", handleScroll);
 
