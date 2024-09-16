@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import i18n from "../services/i18n";
+import i18n from "../../../utils/services/i18n";
 
 
 function configureLang(id, dir) {
@@ -25,7 +25,7 @@ const useAppStore = create((set) => ({
 
     //    splashScreen
 
-    splashScreen: true,
+    splashScreen: false,
     setSplashScreen: (splashScreen) => set({ splashScreen: splashScreen }),
 
     //    splashScreen

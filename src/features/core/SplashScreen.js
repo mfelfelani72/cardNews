@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import ProgressBar from "../../features/core/components/ProgressBar.jsx"
-import useAppStore from "../../../utils/stores/AppStore.js";
+import useAppStore from "../../app/stores/AppStore.js";
 
 import logo from "../../../assets/images/logo.png";
 

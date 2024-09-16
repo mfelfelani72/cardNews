@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Skeleton = () => {
+const AllNewsSkeleton = () => {
     return (
 
         <div className="flex flex-row bg-B-V-bright dark:bg-DB-dim text-T-bright dark:text-DT-bright">
@@ -216,4 +216,4 @@ const Skeleton = () => {
     )
 }
 
-export default Skeleton
+export default AllNewsSkeleton

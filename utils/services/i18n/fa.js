@@ -15,11 +15,11 @@ const fa = {
   llm: 'خبرهای LLM',
   top: 'فوری',
   news: 'اخبار',
-  coins: 'سکه ها',
+  coins: 'سکه‌ها',
   search: 'جستجو',
   whatLLI: 'LLI چیست؟',
   LLMAI: 'هوش مصنوعی LLM',
-  joinUsSochial: 'در شبکه های مجازی به ما بپیوندید',
+  joinUsSochial: 'در شبکه‌های مجازی به ما بپیوندید',
   telegram: 'تلگرام',
 
   // sidebar
@@ -35,7 +35,7 @@ const fa = {
 
   pnf: 'صفحه پیدا نشد',
   sorry: 'متأسفیم، ما نتوانستیم صفحه مورد نظر شما را پیدا کنیم',
-  goHome: 'صفحه اصلی',
+  goHome: 'صفحه‌اصلی',
 
   // 404
 
@@ -43,9 +43,9 @@ const fa = {
 
   author: "نویسنده",
   provider: "خبرگزاری",
-  category: "دسته بندی خبر",
+  category: "دسته‌بندی خبر",
   newScore: "رتبه خبر",
-  relatedPair: "جفت ارزهای مرتبط",
+  relatedPair: "جفت‌ارزهای مرتبط",
   aimoonHub: "آیمون هاب",
 
   // CardRow

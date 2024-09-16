@@ -7,7 +7,7 @@ import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-import useAppStore from "../../../../utils/stores/AppStore.js";
+import useAppStore from "../../stores/AppStore.js";
 import i18n from "../../../../utils/services/i18n";
 
 import "../../styles/app/app.css";

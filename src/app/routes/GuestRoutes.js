@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, lazy, Suspense } from 'react'
 import { Routes, Route } from "react-router-dom";
 
-import { AllNews } from "../../features/news/allNews"
+import AllNewsSkeleton from '../../features/news/AllNewsSkeleton';
+const LazyAllNews = lazy(() => import("../../features/news/allNews"))
 
 const GuestRoutes = () => {
 
@@ -20,8 +21,8 @@ const GuestRoutes = () => {
     return (
 
         <Routes>
-            <Route path="/" element={<AllNews />}></Route>
-            <Route path="/news" element={<AllNews />}></Route>
+            <Route path="/" element={<Suspense fallback={<AllNewsSkeleton />}><LazyAllNews /> </Suspense>}></Route>
+            <Route path="/news" element={<Suspense fallback={<AllNewsSkeleton />}><LazyAllNews /> </Suspense>}></Route>
         </Routes>
 
     )

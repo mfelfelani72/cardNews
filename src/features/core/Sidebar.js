@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../../assets/images/logo.png";
-import useAppStore from "../../../utils/stores/AppStore.js";
+import useAppStore from "../../app/stores/AppStore.js";
 
 import { IoIosClose } from "react-icons/io";
 import { cn } from "../../../utils/lib/cn.js"

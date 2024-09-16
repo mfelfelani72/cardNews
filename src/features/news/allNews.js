@@ -3,15 +3,15 @@ import axios from "../../../utils/services/news/api";
 
 import Loader from "../core/components/Loader.jsx"
 
-import useAppStore from "../../../utils/stores/AppStore.js"
+import useAppStore from "../../app/stores/AppStore.js"
 
-import Skeleton from "./Skeleton.js";
+import AllNewsSkeleton from "./AllNewsSkeleton.js";
 import CardRow from "../core/components/CardRow.jsx";
 
 
 const PAGE_NUMBER = 1;
 
-export function AllNews() {
+const AllNews = () => {
 
     const { setSidebarLink } = useAppStore((state) => ({
         setSidebarLink: state.setSidebarLink,
@@ -78,7 +78,7 @@ export function AllNews() {
             getNews();
 
         setSidebarLink("news");
-        
+
         window.addEventListener("scroll", handleScroll);
 
         console.log(news);
@@ -104,18 +104,20 @@ export function AllNews() {
                             {loading && <Loader />}
 
                         </div>
-                    
+
                     </div>
 
                     :
 
-                    <Skeleton />
+                    <AllNewsSkeleton />
 
             }
         </>
 
     );
 }
+
+export default AllNews;
 
 
 

@@ -5,7 +5,7 @@ import ReactCountryFlag from "react-country-flag";
 import { IoLanguageSharp } from "react-icons/io5";
 
 import { useTranslation } from "react-i18next";
-import useAppStore from "../../../../utils/stores/AppStore.js";
+import useAppStore from "../../../app/stores/AppStore.js";
 
 export default function Languages() {
 

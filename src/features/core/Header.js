@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 import { IoMenu, IoMoon, IoSunny } from "react-icons/io5";
-import useAppStore from "../../../utils/stores/AppStore.js";
+import useAppStore from "../../app/stores/AppStore.js";
 import Languages from "./components/Languages.jsx";
 import { useTranslation } from "react-i18next";
 
