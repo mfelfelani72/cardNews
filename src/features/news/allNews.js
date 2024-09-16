@@ -8,6 +8,7 @@ import useAppStore from "../../app/stores/AppStore.js"
 import AllNewsSkeleton from "./AllNewsSkeleton.js";
 import CardRow from "../core/components/CardRow.jsx";
 
+const lodash = require('lodash');
 
 const PAGE_NUMBER = 1;
 
@@ -45,7 +46,9 @@ const AllNews = () => {
 
                     if (response.data.data.result) {
 
-                        console.log("Fetch data done.")
+                        console.log(newsPage);
+                        console.log("Fetch data done.");
+
                         setNews((prev) => {
                             return [...prev, ...response.data.data.result];
                         });
@@ -66,11 +69,15 @@ const AllNews = () => {
             document.documentElement.scrollHeight
         ) {
             setLoading(true);
-            console.log(newsPage);
+
             if (newsPage !== 1)
-                getNews();
+                lodashGetNews();
         }
     };
+
+    const lodashGetNews = lodash.debounce(function () {
+        getNews();
+    }, 100);
 
     useEffect(() => {
 
