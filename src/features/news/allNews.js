@@ -81,6 +81,8 @@ export function AllNews() {
         
         window.addEventListener("scroll", handleScroll);
 
+        console.log(news);
+
         return () => window.removeEventListener("scroll", handleScroll);
 
     }, [news, newsPage]);

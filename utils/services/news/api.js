@@ -9,7 +9,7 @@ export default axios.create({
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json; charset=utf-8',
-        'Authorization': '92223bf504efcfd0e6e000ba1f4d53f4'
+        'Authorization': 'b6ac98f9007c571d980ead04606fff55'
     },
 
     withCredentials: true,

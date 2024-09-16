@@ -56,16 +56,22 @@ const CardRow = (props) => {
                 </div>
 
                 <div className="flex flex-col pt-4">
-                    <div className="flex flex-row">
+                    <div className="flex flex-row pb-1">
                         <span className="text-sm">{t('author')}</span>
                         <span className="px-3 text-sm font-bold"> {props.row.author}</span>
+                        <span className="text-sm font-bold"> {"( " + props.row.author_info['last_week_count'] + " | " + props.row.author_info['last_day_count'] + " )"}</span>
                     </div>
-                    <div className="flex flex-row">
+                    <div className="flex flex-row pb-1">
                         <span className="text-sm">{t('provider')}</span>
                         <span className="px-3 text-sm font-bold"> {props.row.provider}</span>
+                        <span className="text-sm font-bold"> {"( " + props.row.provider_info['last_week_count'] + " | " + props.row.provider_info['last_day_count'] + " )"}</span>
+                    </div>
+                    <div className="flex flex-row pb-1">
+                        <span className="text-sm">{t('category')}</span>
+                        <span className="px-3 text-sm font-bold"> {props.row.category}</span>
                     </div>
                     {props.row.importanceScore ?
-                        <div className="flex flex-row items-center">
+                        <div className="flex flex-row items-center pb-1">
                             <div className="text-sm">{t('newScore')}</div>
 
                             <div className="w-28 mx-3">
@@ -78,7 +84,7 @@ const CardRow = (props) => {
                         ""
                     }
                     {props.row.symbols && props.row.symbols[0] ?
-                        <div className="flex flex-row">
+                        <div className="flex flex-row pb-1">
                             <span className="text-sm">{t('relatedPair')}</span>
                             <span className="px-3 text-sm font-bold"> {props.row.symbols[0]}</span>
                         </div>

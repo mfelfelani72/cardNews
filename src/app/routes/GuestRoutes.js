@@ -22,6 +22,7 @@ const GuestRoutes = () => {
         <Routes>
             <Route path="/" element={<AllNews />}></Route>
             <Route path="/news" element={<AllNews />}></Route>
+            {/* <Route path="*" element={<AllNews />}></Route>  404 */}
         </Routes>
 
     )

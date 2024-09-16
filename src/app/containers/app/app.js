@@ -16,7 +16,6 @@ import { Header } from "../../../features/core/Header";
 import { Sidebar } from "../../../features/core/Sidebar";
 import Page404 from "../../../features/core/components/Page404.jsx"
 import SplashScreen from "../../../features/core/SplashScreen.js";
-import { Footer } from "../../../features/core/Footer.js";
 
 // This will be our Task
 class Task {

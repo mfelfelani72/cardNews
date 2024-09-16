@@ -43,6 +43,7 @@ const fa = {
 
   author: "نویسنده",
   provider: "خبرگزاری",
+  category: "دسته بندی خبر",
   newScore: "رتبه خبر",
   relatedPair: "جفت ارزهای مرتبط",
   aimoonHub: "آیمون هاب",

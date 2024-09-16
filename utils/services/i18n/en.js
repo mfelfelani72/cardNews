@@ -43,6 +43,7 @@ const en = {
 
   author: "Author",
   provider: "Provider",
+  category: "Category",
   newScore: "News score",
   relatedPair: "Related pairs",
   aimoonHub: "AimoonHub",
